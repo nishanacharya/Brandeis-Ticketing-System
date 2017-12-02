@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">BrandeisTicketingSystem</string>
+    <string name="add_event">Add Event</string>
+    <string name="name_label">Name</string>
+    <string name="location_label">Location</string>
+    <string name="time_label">Time</string>
+    <string name="view_events_button">View Events</string>
+    <string name="view_tickets_button">View Tickets</string>
+    <string name="my_info_button">My info</string>
+
 </resources>
