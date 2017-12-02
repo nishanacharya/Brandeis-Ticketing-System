@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "531185968772",
+    "firebase_url": "https://brandeis-ticketing-system.firebaseio.com",
+    "project_id": "brandeis-ticketing-system",
+    "storage_bucket": "brandeis-ticketing-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531185968772:android:b2db3ac8ae913bc2",
+        "android_client_info": {
+          "package_name": "edu.brandeis.cs.nishanacharya.brandeisticketingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531185968772-3jjoaq739u7sq0q1ihii3cddq807ri42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZi-gHjYtxL-MTs6VkcSHEyg1GOkKib3Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
