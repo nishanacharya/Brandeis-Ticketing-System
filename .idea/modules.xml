@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BrandeisTicketingSystem.iml" filepath="$PROJECT_DIR$/BrandeisTicketingSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Brandeis-Ticketing-System.iml" filepath="$PROJECT_DIR$/Brandeis-Ticketing-System.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
