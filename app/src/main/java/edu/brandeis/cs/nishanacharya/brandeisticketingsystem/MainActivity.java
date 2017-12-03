@@ -12,10 +12,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
 
     private EditText editEmailAddress;
     private EditText editPassword;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -37,6 +40,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logInView();
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.home_Button:
+//                // return home
+//                return true;
+//
+//            default:
+//                // If we got here, the user's action was not recognized.
+//                // Invoke the superclass to handle it.
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
 
     private void logInView() {
         editEmailAddress = (EditText) findViewById(R.id.editTextEmail);

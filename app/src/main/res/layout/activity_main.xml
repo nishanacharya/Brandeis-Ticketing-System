@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.LoginActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.MainActivity">
 
     <EditText
         android:inputType="textEmailAddress"
@@ -26,6 +27,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#233a77"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat"
+        app:popupTheme="@style/ThemeOverlay.AppCompat"
+        />
 
     <Button
         android:id="@+id/buttonSignUp"
