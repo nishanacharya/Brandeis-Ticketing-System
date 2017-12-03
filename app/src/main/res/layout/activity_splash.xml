@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.Splash_Activity"
-    android:background="#233a77">
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Welcome!"
         android:textSize="40sp"
-        android:textColor="#ffffff"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.214" />
 
     <ImageView
         android:id="@+id/imageView"

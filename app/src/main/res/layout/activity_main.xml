@@ -7,7 +7,6 @@
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.MainActivity">
 
     <android.support.v7.widget.Toolbar
-        style="@style/MyActionBarTitle"
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
