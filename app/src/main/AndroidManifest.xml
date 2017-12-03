@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EventViewerActivity"></activity>
+        <activity android:name=".TicketViewerActivity"></activity>
     </application>
 
 </manifest>

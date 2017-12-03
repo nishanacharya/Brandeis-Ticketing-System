@@ -7,5 +7,7 @@
     <string name="view_events_button">View Events</string>
     <string name="view_tickets_button">View Tickets</string>
     <string name="my_info_button">My info</string>
+    <string name="add_button">Add</string>
+    <string name="delete_button">Delete</string>
 
 </resources>

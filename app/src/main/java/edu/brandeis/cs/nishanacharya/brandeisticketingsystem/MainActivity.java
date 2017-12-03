@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private TicketAdapter adapter;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,26 +22,15 @@ public class MainActivity extends AppCompatActivity {
         Button mTickets = (Button) findViewById(R.id.tickets_button);
         mTickets.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, EventViewerActivity.class));
+                startActivity(new Intent(MainActivity.this, TicketViewerActivity.class));
             }
         });
 
         Button mEvents = (Button) findViewById(R.id.events_button);
-        mTickets.setOnClickListener(new View.OnClickListener() {
+        mEvents.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, EventViewerActivity.class));
             }
         });
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                adapter.insert(data);
-            }
-        }
-    }
-
 }

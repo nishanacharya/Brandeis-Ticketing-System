@@ -14,13 +14,13 @@ import android.widget.TextView;
  * Created by Triple Stuffed Oreo on 11/26/2017.
  */
 
-class UserAdapter extends SimpleCursorAdapter {
+class EventAdapter extends SimpleCursorAdapter {
 
-    private TicketDataHandler db;
+    private EventDataHandler db;
 
-    public UserAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags){
+    public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags){
         super(context, layout, c, from, to, flags);
-        db = new TicketDataHandler(context);
+        db = new EventDataHandler(context);
         super.changeCursor(db.getCursor());
     }
 
@@ -31,7 +31,7 @@ class UserAdapter extends SimpleCursorAdapter {
                 data.getExtras().getString("limit"));
         db.insert(holder.getName(), holder.getLocation(), holder.getTime(),
                 holder.getDate(), holder.getPrice(), holder.getLimit());
-        UserAdapter.super.changeCursor(db.getCursor());
+        EventAdapter.super.changeCursor(db.getCursor());
     }
 
     @Override
@@ -56,19 +56,20 @@ class UserAdapter extends SimpleCursorAdapter {
         limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
 
 
-        /*Button delete_button = view.findViewById(R.id.delete_button);
-        delete_button.setOnClickListener(new View.OnClickListener(){
+        Button add_button = view.findViewById(R.id.delete_button);
+        add_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                db.delete(description.getText().toString());
-                TicketAdapter.super.changeCursor(db.getCursor());
+
+                db.delete(name.getText().toString());
+                EventAdapter.super.changeCursor(db.getCursor());
             }
-        });*/
+        });
     }
 
     public void testInsert(){
         db.insert("Finals", "Golding 101", "6PM-9PM", "December 12th",
                 "FREE", "150");
-        UserAdapter.super.changeCursor(db.getCursor());
+        EventAdapter.super.changeCursor(db.getCursor());
     }
 }

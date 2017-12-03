@@ -10,12 +10,14 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Triple Stuffed Oreo on 11/26/2017.
  */
 
-class UserDataHandler extends SQLiteOpenHelper {
+class EventDataHandler extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "TicketManagement.db";
-    private static String TABLE_NAME;
+    private static final String TABLE_NAME = "event_table";
+    private static final String MASTER_TABLE_NAME = "master_ticket_list";
     private static final String COLUMN_ID = "_id";
+    private static final String USER_ID = "user_id";
     private static final String EVENT_NAME = "event_name";
     private static final String EVENT_LOCATION = "event_location";
     private static final String EVENT_DATE = "event_date";
@@ -23,13 +25,18 @@ class UserDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_PRICE = "event_price";
     private static final String EVENT_LIMIT = "event_limit";
 
-    public UserDataHandler(Context context, String UserEmailAddress) {
-        super(context, DATABASE_NAME, null, 2);
-        TABLE_NAME = UserEmailAddress;
+    public EventDataHandler(Context context) {
+        super(context, DATABASE_NAME, null, 3);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
+        db.execSQL("CREATE TABLE " + MASTER_TABLE_NAME + " ( " + COLUMN_ID
+                + " integer primary key autoincrement, "
+                + USER_ID
+                +  "Text," + EVENT_NAME
+                + " Text)");
+
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_ID
                 + " integer primary key autoincrement, "
                 + EVENT_NAME

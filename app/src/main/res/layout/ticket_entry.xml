@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:id="@+id/event_name"
+        android:id="@+id/ticket_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,57 +14,57 @@
         android:textColor="@android:color/black"/>
 
     <TextView
-        android:id="@+id/event_location"
+        android:id="@+id/ticket_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/event_name"
+        android:layout_below="@+id/ticket_name"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/event_date"
+        android:id="@+id/ticket_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/event_location"
+        android:layout_below="@+id/ticket_location"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/event_time"
+        android:id="@+id/ticket_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/event_date"
+        android:layout_below="@+id/ticket_date"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/event_price"
+        android:id="@+id/ticket_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/event_location"
+        android:layout_below="@+id/ticket_location"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/event_limit"
+        android:id="@+id/ticket_limit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/event_price"
-        android:layout_alignLeft="@+id/event_price"
-        android:layout_alignStart="@+id/event_price"
+        android:layout_above="@+id/ticket_price"
+        android:layout_alignLeft="@+id/ticket_price"
+        android:layout_alignStart="@+id/ticket_price"
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/add_button"
-        android:layout_width="60dp"
+        android:id="@+id/delete_button"
+        android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/event_limit"
+        android:layout_alignTop="@+id/ticket_limit"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:text="@string/add_button" />
+        android:text="@string/delete_button" />
 </RelativeLayout>
