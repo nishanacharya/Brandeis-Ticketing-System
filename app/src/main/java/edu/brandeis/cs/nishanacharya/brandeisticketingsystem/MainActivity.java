@@ -105,12 +105,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean validation(String emailAddress, String password) {
         if(emailAddress.isEmpty()){
-            Toast.makeText(this, "Please enter an email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.enter_email), Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if(password.isEmpty()){
-            Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.enter_password), Toast.LENGTH_SHORT).show();
             return false;
         }
 

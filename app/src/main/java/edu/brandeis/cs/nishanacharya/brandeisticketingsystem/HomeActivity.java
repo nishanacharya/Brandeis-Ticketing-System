@@ -34,14 +34,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
         if(extras != null){
-            this.userName = extras.getString("userName");
-            this.emailAddress = extras.getString("emailAddress");
-            this.password = extras.getString("password");
+            this.userName = extras.getString(getString(R.string.user_name));
+            this.emailAddress = extras.getString(getString(R.string.email_address));
+            this.password = extras.getString(getString(R.string.password));
             if(userName != null && emailAddress != null && password != null){
                 logInOnSignUp(userName, emailAddress, password);
             }
         }
         setContentView(R.layout.activity_home);
+
+
+
+
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
     }
