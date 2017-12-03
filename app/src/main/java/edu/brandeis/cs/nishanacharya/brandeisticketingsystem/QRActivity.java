@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class MainActivity extends AppCompatActivity {
+public class QRActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_QR);
         final Button button_generate = (Button) findViewById(R.id.main_generate);
         final Button button_read = (Button) findViewById(R.id.main_read);
 
