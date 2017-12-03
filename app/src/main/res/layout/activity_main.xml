@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        style="@style/MyActionBarTitle"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#233a77"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat"
+        app:popupTheme="@style/ThemeOverlay.AppCompat"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
