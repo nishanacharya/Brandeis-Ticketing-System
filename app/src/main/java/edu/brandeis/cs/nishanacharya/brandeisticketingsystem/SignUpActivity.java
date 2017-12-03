@@ -20,7 +20,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private EditText editEmailAddress;
     private EditText editPassword;
     private Button buttonSignUp;
-    private Button buttonSignIn;
+    private Button buttonSignIn; 
     private FirebaseAuth firebaseAuth;
     private static final String UNIVERSITY_EMAIL = "@brandeis.edu";
 
@@ -64,9 +64,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 Intent userInfo = new Intent(SignUpActivity.this, HomeActivity.class);
-                                userInfo.putExtra("userName", name);
-                                userInfo.putExtra("emailAddress", emailAddress);
-                                userInfo.putExtra("password", password);
+                                userInfo.putExtra(getString(R.string.user_name), name);
+                                userInfo.putExtra(getString(R.string.email_address), emailAddress);
+                                userInfo.putExtra(getString(R.string.password), password);
                                 finish();
                                 startActivity(userInfo);
                             } else {
