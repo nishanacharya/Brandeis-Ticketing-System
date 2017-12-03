@@ -42,6 +42,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         setContentView(R.layout.activity_home);
+
+
+
+
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
     }

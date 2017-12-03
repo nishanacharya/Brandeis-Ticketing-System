@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.MainActivity"
+    android:background="#FFF8E1">
+
+
+    <Button
+        android:id="@+id/main_generate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate QR Code"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="85dp"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/main_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read QR Code"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="317dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="204dp" />
+
+</RelativeLayout>
+
