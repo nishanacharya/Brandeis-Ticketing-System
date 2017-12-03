@@ -1,6 +1,10 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,11 +22,16 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class QRReader extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView ScannerView;
+    final int REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_reader);
+
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, REQUEST_CODE);
+        }
 
         Button button = (Button) findViewById(R.id.read);
         button.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +60,6 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         alertDialog.show();
 
         // Resumes scanning
-        //ScannerView.resumeCameraPreview(this);
+        ScannerView.resumeCameraPreview(this);
     }
 }
