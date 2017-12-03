@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -79,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if(view == signOutButton){
             firebaseAuth.signOut();
             finish();
-            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            startActivity(new Intent(HomeActivity.this, MainActivity.class));
         }
     }
 }
