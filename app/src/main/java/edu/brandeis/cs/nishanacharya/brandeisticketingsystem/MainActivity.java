@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                 //go to user profile
                             } else {
-                                //Singup Failure Message for now
+                                //Sign up Failure Message for now
                                 Toast.makeText(MainActivity.this, "Sign In Failed", Toast.LENGTH_SHORT).show();
                             }
 

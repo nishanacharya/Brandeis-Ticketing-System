@@ -21,7 +21,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private String userName;
     private String emailAddress;
     private String password;
-    private TextView welcome;
     private Button signOutButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -31,7 +30,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser tuser = firebaseAuth.getCurrentUser();
 
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
@@ -46,7 +44,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
-        welcome(tuser);
     }
 
     private void logInOnSignUp(final String userName, String emailAddress, String password) {
@@ -66,11 +63,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
-    }
-
-    private void welcome(FirebaseUser user) {
-        welcome = (TextView) findViewById(R.id.textWelcome);
-        welcome.setText(user.getEmail());
     }
 
     @Override

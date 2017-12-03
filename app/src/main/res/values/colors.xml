@@ -10,5 +10,6 @@
     <color name="secondaryDarkColor">#1e85c1</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
+    <color name="grey">#f6f5f6</color>
 
 </resources>
