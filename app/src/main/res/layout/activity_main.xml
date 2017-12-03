@@ -17,38 +17,62 @@
         android:theme="@style/ThemeOverlay.AppCompat"
         app:popupTheme="@style/ThemeOverlay.AppCompat" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        />
+
     <EditText
         android:id="@+id/editTextEmail"
         android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter your email address"
+        android:textColorHint="@color/black"
+        android:textSize="21sp"
         android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <EditText
         android:id="@+id/editPassword"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:hint="Enter password"
+        android:textColorHint="@color/black"
+        android:textSize="21sp"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/buttonSignIn"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
         android:theme="@style/AppTheme.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center_vertical"
+        android:textSize="24sp"
         android:text="Sign In" />
 
 
     <Button
         android:id="@+id/buttonSignUp"
-        android:theme="@style/AppTheme.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:gravity="center_vertical"
-        android:text="Sign Up" />
+        android:text="Not Registered? Sign Up"
+        android:textSize="16sp"
+        android:theme="@style/AppTheme.Button2" />
 
 </LinearLayout>
