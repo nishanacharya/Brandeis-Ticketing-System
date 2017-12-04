@@ -24,10 +24,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button signOutButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
+    private boolean admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.admin = false;
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -41,13 +44,47 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 logInOnSignUp(userName, emailAddress, password);
             }
         }
-        setContentView(R.layout.activity_home);
 
-
-
+        adminOrNot();
 
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
+    }
+
+    private void adminOrNot() {
+        for(int i =0; i < this.ADMINS.length; i++){
+            if (firebaseAuth.getCurrentUser().getUid().equals(ADMINS[i])){
+                this.admin = true;
+                break;
+            }
+        }
+        if(admin){
+            setContentView(R.layout.activity_admin_home);
+            adminOptions();
+        } else {
+            setContentView(R.layout.activity_home);
+            regularOptions();
+        }
+    }
+
+    private void adminOptions() {
+
+    }
+
+    private void regularOptions() {
+        Button mTickets = (Button) findViewById(R.id.tickets_button);
+        mTickets.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, TicketViewerActivity.class));
+            }
+        });
+
+        Button mEvents = (Button) findViewById(R.id.events_button);
+        mEvents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
+            }
+        });
     }
 
     private void logInOnSignUp(final String userName, String emailAddress, String password) {

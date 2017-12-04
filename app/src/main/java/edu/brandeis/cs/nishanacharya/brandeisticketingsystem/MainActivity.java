@@ -39,19 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         logInView();
 
-        Button mTickets = (Button) findViewById(R.id.tickets_button);
-        mTickets.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, TicketViewerActivity.class));
-            }
-        });
 
-        Button mEvents = (Button) findViewById(R.id.events_button);
-        mEvents.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, EventViewerActivity.class));
-            }
-        });
 
     }
     @Override
@@ -60,21 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inflater.inflate(R.menu.directory,item);
         return true;
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.home_Button:
-//                // return home
-//                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
 
     private void logInView() {
         editEmailAddress = (EditText) findViewById(R.id.editTextEmail);
