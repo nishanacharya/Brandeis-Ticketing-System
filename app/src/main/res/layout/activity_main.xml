@@ -68,7 +68,6 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:layout_gravity="center"
-        android:gravity="center"
         android:paddingTop="80sp"
         android:text="Not Registered? Sign Up"
         android:textSize="16sp"
