@@ -39,6 +39,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         logInView();
 
+        Button mTickets = (Button) findViewById(R.id.tickets_button);
+        mTickets.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TicketViewerActivity.class));
+            }
+        });
+
+        Button mEvents = (Button) findViewById(R.id.events_button);
+        mEvents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, EventViewerActivity.class));
+            }
+        });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu item) {
