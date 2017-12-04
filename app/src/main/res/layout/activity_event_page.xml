@@ -30,4 +30,21 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="246dp" />
+
+    <TextView
+        android:id="@+id/eventDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <Button
+        android:id="@+id/saveToCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Calendar"
+        android:onClick="saveToCalendar"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="357dp" />
 </android.support.constraint.ConstraintLayout>
