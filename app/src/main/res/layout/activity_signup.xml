@@ -21,10 +21,8 @@
         android:gravity="center_vertical"
         android:layout_gravity="center"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:hint= "Enter Name"
         android:id= "@+id/editTextName"
-        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
