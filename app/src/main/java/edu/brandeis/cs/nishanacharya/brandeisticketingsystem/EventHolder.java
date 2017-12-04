@@ -13,6 +13,8 @@ class EventHolder {
     private String price;
     private String limit;
 
+    public EventHolder(){}
+
     public EventHolder(String Name, String Location, String Date, String Time, String Price , String Limit){
         name = Name;
         location = Location;

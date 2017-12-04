@@ -17,10 +17,12 @@ import android.widget.TextView;
 class EventAdapter extends SimpleCursorAdapter {
 
     private EventDataHandler db;
+    private String userName;
 
-    public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags){
+    public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags, String userName){
         super(context, layout, c, from, to, flags);
         db = new EventDataHandler(context);
+        this.userName = userName;
         super.changeCursor(db.getCursor());
     }
 
@@ -29,7 +31,7 @@ class EventAdapter extends SimpleCursorAdapter {
                 data.getExtras().getString("location"), data.getExtras().getString("date"),
                 data.getExtras().getString("time"), data.getExtras().getString("price"),
                 data.getExtras().getString("limit"));
-        db.insert(holder.getName(), holder.getLocation(), holder.getTime(),
+        db.insertEvent(holder.getName(), holder.getLocation(), holder.getTime(),
                 holder.getDate(), holder.getPrice(), holder.getLimit());
         EventAdapter.super.changeCursor(db.getCursor());
     }
@@ -41,7 +43,8 @@ class EventAdapter extends SimpleCursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor){
-        final TextView name = view.findViewById(R.id.event_name);
+        final String event_name = cursor.getString(1);
+        TextView name = view.findViewById(R.id.event_name);
         TextView location = view.findViewById(R.id.event_location);
         TextView date = view.findViewById(R.id.event_date);
         TextView time = view.findViewById(R.id.event_time);
@@ -55,21 +58,13 @@ class EventAdapter extends SimpleCursorAdapter {
         price.setText(cursor.getString(cursor.getColumnIndex("event_price")));
         limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
 
-
-        Button add_button = view.findViewById(R.id.delete_button);
+        Button add_button = view.findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-                db.delete(name.getText().toString());
+                db.insertTicket(userName, event_name);
                 EventAdapter.super.changeCursor(db.getCursor());
             }
         });
-    }
-
-    public void testInsert(){
-        db.insert("Finals", "Golding 101", "6PM-9PM", "December 12th",
-                "FREE", "150");
-        EventAdapter.super.changeCursor(db.getCursor());
     }
 }

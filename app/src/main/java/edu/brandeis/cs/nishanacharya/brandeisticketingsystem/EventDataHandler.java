@@ -15,7 +15,7 @@ class EventDataHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "TicketManagement.db";
     private static final String TABLE_NAME = "event_table";
-    private static final String MASTER_TABLE_NAME = "master_ticket_list";
+    private static final String MASTER_TABLE_NAME = "ticket_table";
     private static final String COLUMN_ID = "_id";
     private static final String USER_ID = "user_id";
     private static final String EVENT_NAME = "event_name";
@@ -26,7 +26,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_LIMIT = "event_limit";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 3);
+        super(context, DATABASE_NAME, null, 24);
     }
 
     @Override
@@ -34,7 +34,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + MASTER_TABLE_NAME + " ( " + COLUMN_ID
                 + " integer primary key autoincrement, "
                 + USER_ID
-                +  "Text," + EVENT_NAME
+                + " Text," + EVENT_NAME
                 + " Text)");
 
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_ID
@@ -51,6 +51,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + MASTER_TABLE_NAME);
         onCreate(db);
     }
 
@@ -59,7 +60,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public void insert(String Name, String Location, String Time, String Date, String Price, String Limit){
+    public void insertEvent(String Name, String Location, String Time, String Date, String Price, String Limit){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -73,6 +74,16 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
     }
 
+    public void insertTicket(String UserName, String EventName){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(USER_ID, UserName);
+        contentValues.put(EVENT_NAME, EventName);
+
+        db.insert(MASTER_TABLE_NAME, null, contentValues);
+    }
+
     public  void delete(String string){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, EVENT_NAME + " = ?", new String[]{ string });
@@ -80,7 +91,7 @@ class EventDataHandler extends SQLiteOpenHelper {
 
     public boolean doesTableExist(){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null );
+        Cursor cur = db.rawQuery("SELECT COUNT(*) FROM " + MASTER_TABLE_NAME, null );
         if(cur != null){
             cur.moveToFirst();
         }
