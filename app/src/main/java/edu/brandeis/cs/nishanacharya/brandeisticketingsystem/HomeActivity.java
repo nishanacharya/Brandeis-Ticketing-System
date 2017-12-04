@@ -75,13 +75,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        Button mEvents = (Button) findViewById(R.id.events_button);
-        mEvents.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
-            }
-        });
-
     }
 
     private void regularOptions() {
