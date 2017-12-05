@@ -1,7 +1,9 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +21,7 @@ public class TicketViewerActivity extends AppCompatActivity {
     private TicketAdapter adapter;
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
+    private ListView listView;
 
 
     @Override
@@ -27,7 +30,7 @@ public class TicketViewerActivity extends AppCompatActivity {
         setContentView(R.layout.view_tickets);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        final ListView listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.ticketListView);
         dh = new TicketDataHandler(this);
         list = dh.getData("brandeis");
         dh.testInsert();
@@ -42,5 +45,12 @@ public class TicketViewerActivity extends AppCompatActivity {
                 startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
             }
         });
+
+//        Button buttonQR = (Button) findViewById(R.id.ticket_view_button);
+//        buttonQR.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
+//            }
+//        });
     }
 }

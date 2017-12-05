@@ -76,7 +76,7 @@
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/delete_button"
+        android:id="@+id/ticket_view_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -85,6 +85,6 @@
         android:layout_marginEnd="31dp"
         android:layout_marginRight="15dp"
         android:textSize="15sp"
-        android:text="@string/delete_button"
+        android:text="@string/ticket_view"
         android:theme="@style/AppTheme.Button"/>
 </RelativeLayout>

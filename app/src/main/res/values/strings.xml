@@ -13,7 +13,7 @@
     <string name="view_tickets_button">My Tickets</string>
     <string name="my_info_button">My info</string>
     <string name="add_button">Purchase Ticket</string>
-    <string name="delete_button">View Ticket</string>
+    <string name="ticket_view">View Ticket</string>
     <string name="create_event_button">Create an event</string>
     <string name="qr_reader">QR Reader</string>
     <string name="qr_generator">Generate QR Code</string>

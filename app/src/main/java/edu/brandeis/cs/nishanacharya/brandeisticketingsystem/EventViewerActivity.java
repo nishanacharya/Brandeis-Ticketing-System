@@ -1,6 +1,5 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +19,7 @@ public class EventViewerActivity extends AppCompatActivity {
         setContentView(R.layout.view_events);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        final ListView listView = (ListView) findViewById(R.id.listView);
+        final ListView listView = (ListView) findViewById(R.id.ticketListView);
         String[] from = { "_id", "event_name", "event_location", "event_date",
                 "event_time", "event_price", "event_limit"};
         int[] to = { R.id.event_name, R.id.event_location, R.id.event_date, R.id.event_time,
