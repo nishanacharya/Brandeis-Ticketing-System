@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 
 import android.graphics.Bitmap;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,8 @@ public class QRGenerator extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_generator);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
         convertToQR = getIntent().getStringExtra(getString(R.string.unique_qr_id));  // Unique ID is created with userID + ticketID
         TextView qrID = (TextView) findViewById(R.id.uniqueID);
