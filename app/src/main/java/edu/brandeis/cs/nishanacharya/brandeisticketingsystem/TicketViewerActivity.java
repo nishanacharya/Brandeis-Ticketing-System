@@ -45,12 +45,5 @@ public class TicketViewerActivity extends AppCompatActivity {
                 startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
             }
         });
-
-//        Button buttonQR = (Button) findViewById(R.id.ticket_view_button);
-//        buttonQR.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
-//            }
-//        });
     }
 }

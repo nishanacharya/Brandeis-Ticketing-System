@@ -50,13 +50,6 @@ class TicketAdapter extends ArrayAdapter {
             price.setText(event.getPrice());
             limit.setText(event.getLimit());
         }
-
-//        Button add_button = view.findViewById(R.id.ticket_view_button);
-//        add_button.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View view){
-//                startActivity(new Intent(TicketAdapter.this, QRGenerator.class));
-//            }
-//        });
         return view;
     }
 }
