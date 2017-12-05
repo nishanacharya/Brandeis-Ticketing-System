@@ -1,14 +1,13 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView;
 
 
 import java.util.ArrayList;
@@ -51,16 +50,6 @@ class TicketAdapter extends ArrayAdapter {
             price.setText(event.getPrice());
             limit.setText(event.getLimit());
         }
-
-        Button add_button = view.findViewById(R.id.delete_button);
-        add_button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                TicketDataHandler db = new TicketDataHandler(context);
-                db.delete(event_name);
-                notifyDataSetChanged();
-            }
-        });
         return view;
     }
 }

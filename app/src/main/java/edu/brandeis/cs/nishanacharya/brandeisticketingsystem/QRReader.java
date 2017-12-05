@@ -49,9 +49,9 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
 
     public void handleResult(Result result) {
         // Do something with the result
-        Log.w("handleResult", result.getText());
+        Log.w(getString(R.string.handleResult), result.getText());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan result");
+        builder.setTitle(getString(R.string.scanResult));
         builder.setMessage(result.getText());
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

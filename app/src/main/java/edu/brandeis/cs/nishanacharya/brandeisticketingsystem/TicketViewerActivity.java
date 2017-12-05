@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,6 +18,7 @@ public class TicketViewerActivity extends AppCompatActivity {
     private TicketAdapter adapter;
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
+    private ListView listView;
 
 
     @Override
@@ -27,9 +27,9 @@ public class TicketViewerActivity extends AppCompatActivity {
         setContentView(R.layout.view_tickets);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        final ListView listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.ticketListView);
         dh = new TicketDataHandler(this);
-        list = dh.getData("brandeis");
+        list = dh.getData(getString(R.string.brandeis));
         dh.testInsert();
         adapter = new TicketAdapter(this, R.layout.ticket_entry, list);
         listView.setAdapter(adapter);
@@ -38,8 +38,13 @@ public class TicketViewerActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                TextView tID = (TextView) view.findViewById(R.id.event_name);
-                startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
+                // Get user ID and ticket ID and send to QR Generator
+                String uniqueTicketID = "Placeholder";    // = userID + ticketID;
+
+
+                Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
+                QRActivity.putExtra(getString(R.string.unique_qr_id), uniqueTicketID);
+                startActivity(QRActivity);
             }
         });
     }
