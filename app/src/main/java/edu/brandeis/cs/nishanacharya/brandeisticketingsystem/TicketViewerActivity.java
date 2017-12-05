@@ -2,6 +2,7 @@ package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ public class TicketViewerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_tickets);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
         final ListView listView = (ListView) findViewById(R.id.listView);
         dh = new TicketDataHandler(this);
         list = dh.getData("brandeis");

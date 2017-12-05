@@ -9,9 +9,9 @@
     <string name="name_label">Name</string>
     <string name="location_label">Location</string>
     <string name="time_label">Time</string>
-    <string name="view_events_button">View Events</string>
-    <string name="view_tickets_button">View Tickets</string>
+    <string name="view_events_button">Buy Tickets</string>
+    <string name="view_tickets_button">My Tickets</string>
     <string name="my_info_button">My info</string>
-    <string name="add_button">Add</string>
-    <string name="delete_button">Delete</string>
+    <string name="add_button">Purchase Ticket</string>
+    <string name="delete_button">View Ticket</string>
 </resources>
