@@ -75,6 +75,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        Button mQR = (Button) findViewById(R.id.qr_event_button);
+        mQR.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, QRReader.class));
+            }
+        });
     }
 
     private void regularOptions() {
@@ -89,6 +95,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mEvents.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
+            }
+        });
+
+        Button mQR = (Button) findViewById(R.id.qr_event_button);
+        mQR.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, QRGenerator.class));
             }
         });
     }

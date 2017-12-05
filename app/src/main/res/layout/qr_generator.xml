@@ -6,30 +6,11 @@
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.QRGenerator"
     android:background="#FFF8E1">
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/enter_email"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:hint="Enter Text Here"
-        android:gravity="center"
-        />
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="CLICK HERE TO generate qr code"
-        android:id="@+id/generate"
-        android:layout_below="@+id/enter_email"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/generate"
         />
 
 </RelativeLayout>

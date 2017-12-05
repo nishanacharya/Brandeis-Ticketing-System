@@ -32,26 +32,19 @@ public class QRGenerator extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_generator);
         imageView = (ImageView)findViewById(R.id.imageView);
-        editText = (EditText)findViewById(R.id.enter_email);
-        button = (Button)findViewById(R.id.generate);
+//        editText = (EditText)findViewById(R.id.enter_email);
+//        button = (Button)findViewById(R.id.generate);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        EditTextValue = editText.getText().toString();
 
-                EditTextValue = editText.getText().toString();
+        try {
+            bitmap = TextToImageEncode("123abc");
 
-                try {
-                    bitmap = TextToImageEncode(EditTextValue);
+            imageView.setImageBitmap(bitmap);
 
-                    imageView.setImageBitmap(bitmap);
-
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
 
     }
     Bitmap TextToImageEncode(String Value) throws WriterException {

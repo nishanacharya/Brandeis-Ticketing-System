@@ -33,15 +33,12 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, REQUEST_CODE);
         }
 
-        Button button = (Button) findViewById(R.id.read);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ScannerView = new ZXingScannerView(QRReader.this);
-                setContentView(ScannerView);
-                ScannerView.setResultHandler(QRReader.this);
-                ScannerView.startCamera();
-            }
-        });
+        // Open QR Code reader
+        ScannerView = new ZXingScannerView(QRReader.this);
+        setContentView(ScannerView);
+        ScannerView.setResultHandler(QRReader.this);
+        ScannerView.startCamera();
+
     }
 
     @Override

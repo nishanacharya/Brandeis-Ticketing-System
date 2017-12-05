@@ -15,4 +15,6 @@
     <string name="add_button">Add</string>
     <string name="delete_button">Delete</string>
     <string name="create_event_button">Create an event</string>
+    <string name="qr_reader">QR Reader</string>
+    <string name="qr_generator">Generate QR Code</string>
 </resources>

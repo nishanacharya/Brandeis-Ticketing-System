@@ -18,31 +18,42 @@
 
     <EditText
         android:inputType="text"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
         android:hint= "Enter Name"
         android:id= "@+id/editTextName"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
         android:inputType="textEmailAddress"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:hint= "Enter your email address"
         android:id= "@+id/editTextEmail"
-        android:textColor="@color/black"
+        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
         android:inputType="textPassword"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:hint= "Enter password"
         android:id= "@+id/editPassword"
-        android:textColor="@color/black"
+        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/buttonSignUp"
         android:text = "Sign Up"
+        android:theme="@style/AppTheme.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
