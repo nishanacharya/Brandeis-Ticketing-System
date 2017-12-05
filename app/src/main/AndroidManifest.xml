@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,8 @@
         <activity android:name=".EventViewerActivity" />
         <activity android:name=".TicketViewerActivity" />
         <activity android:name=".EventPageActivity" />
-        <activity android:name=".CreateEventActivity"></activity>
+        <activity android:name=".CreateEventActivity" />
+        <activity android:name=".EditEventActivity"></activity>
     </application>
 
 </manifest>

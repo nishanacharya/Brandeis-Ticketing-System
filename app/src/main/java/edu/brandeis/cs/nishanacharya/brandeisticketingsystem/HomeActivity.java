@@ -73,15 +73,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void adminOptions() {
-        Button mTickets = (Button) findViewById(R.id.create_event_button);
-        mTickets.setOnClickListener(new View.OnClickListener() {
+        Button createEvent = (Button) findViewById(R.id.create_event_button);
+        createEvent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, CreateEventActivity.class));
+
             }
         });
 
-        Button mQR = (Button) findViewById(R.id.qr_event_button);
-        mQR.setOnClickListener(new View.OnClickListener() {
+        Button editEvent = (Button) findViewById(R.id.edit_event_button);
+        editEvent.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, EditEventActivity.class));
+            }
+        });
+
+        Button buttonQR = (Button) findViewById(R.id.qr_event_button);
+        buttonQR.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, QRReader.class));
             }

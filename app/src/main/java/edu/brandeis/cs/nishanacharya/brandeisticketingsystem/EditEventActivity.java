@@ -1,6 +1,5 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,38 +8,49 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-public class CreateEventActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditEventActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText editEventName;
     private EditText editEventDescription;
     private EditText editEventLocation;
     private DatePicker editDate;
     private TimePicker editTime;
-    private Button buttonCreateEvent;
+    private Button buttonEditEvent;
+    private Button buttonDeleteEvent;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_event);
-        createEvent();
+        setContentView(R.layout.activity_edit_event);
+        editEvent();
     }
 
-    private void createEvent() {
+    private void editEvent() {
         editEventName = (EditText) findViewById(R.id.editEventName);
         editEventDescription = (EditText) findViewById(R.id.editEventDescription);
         editEventLocation = (EditText) findViewById(R.id.editEventLocation);
         editDate = (DatePicker) findViewById(R.id.editEventDate);
         editTime = (TimePicker) findViewById(R.id.editEventTime);
-        buttonCreateEvent = (Button) findViewById(R.id.buttonCreateEvent);
-        buttonCreateEvent.setOnClickListener(this);
+        buttonEditEvent = (Button) findViewById(R.id.buttonSaveEvent);
+        buttonDeleteEvent = (Button) findViewById(R.id.buttonDeleteEvent);
+        buttonEditEvent.setOnClickListener(this);
+        prefill();
+    }
+
+    private void prefill() {
+        // prefill text here
     }
 
     @Override
     public void onClick(View view) {
-        if(view == buttonCreateEvent){
-            // pass values to database
-            finish();
-            startActivity(new Intent(CreateEventActivity.this, HomeActivity.class));
+        if(view == buttonEditEvent){
+            //edit text
+            //message that change was made
+            //go to particular ticket
+        } else if (view == buttonDeleteEvent){
+            //delete event
+            //message
+            //go to home
         }
     }
 }
