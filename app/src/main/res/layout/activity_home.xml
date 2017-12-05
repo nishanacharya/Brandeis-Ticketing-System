@@ -61,7 +61,7 @@
         android:background="@color/offblack" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/myinfo_button"
         android:background="@android:color/transparent"
         android:paddingTop="20sp"
         android:layout_marginLeft="10sp"

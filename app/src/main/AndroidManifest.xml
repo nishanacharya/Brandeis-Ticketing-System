@@ -47,7 +47,8 @@
         <activity android:name=".TicketViewerActivity" />
         <activity android:name=".EventPageActivity" />
         <activity android:name=".CreateEventActivity" />
-        <activity android:name=".EditEventActivity"></activity>
+        <activity android:name=".EditEventActivity" />
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>

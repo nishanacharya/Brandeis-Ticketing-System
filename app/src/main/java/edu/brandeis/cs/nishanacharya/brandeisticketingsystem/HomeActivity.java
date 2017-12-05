@@ -48,6 +48,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         adminOrNot();
 
+        Button buttonMyInfo = (Button) findViewById(R.id.myinfo_button);
+        buttonMyInfo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, UserProfileActivity.class));
+
+            }
+        });
+
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
     }
@@ -127,8 +135,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         if(task.isSuccessful()){
                             RegularUser newUser = new RegularUser(userName);
                             databaseReference.child(firebaseAuth.getCurrentUser().getUid()).setValue(newUser);
-
-                            //go to user profile
                         } else {
                             //Singup Failure Message for now
                             Toast.makeText(HomeActivity.this, "Failed", Toast.LENGTH_SHORT).show();
