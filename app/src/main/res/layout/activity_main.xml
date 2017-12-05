@@ -14,20 +14,18 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat"
-        app:popupTheme="@style/ThemeOverlay.AppCompat" />
+        android:theme="@style/appBarTheme"
+        app:popupTheme="@style/appBarTheme" />
 
-    <TextView
-        android:id="@+id/textView3"
+    <View
+        android:paddingTop="20sp"
+        android:layout_marginTop="60sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        />
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,29 +33,29 @@
         android:textColorHint="@color/black"
         android:textSize="21sp"
         android:inputType="textEmailAddress" />
-
-    <TextView
-        android:id="@+id/textView4"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <EditText
         android:id="@+id/editPassword"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter password"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="21sp"
-        android:inputType="textPassword" />
+        android:textSize="21sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <Button
         android:id="@+id/buttonSignIn"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
+        android:layout_gravity="right"
+        android:layout_marginTop="10sp"
         android:theme="@style/AppTheme.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:paddingTop="80sp"
         android:text="Not Registered? Sign Up"
         android:textSize="16sp"
         android:theme="@style/AppTheme.Button2" />

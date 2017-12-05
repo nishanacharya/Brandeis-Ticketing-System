@@ -12,43 +12,71 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#233a77"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat"
-        app:popupTheme="@style/ThemeOverlay.AppCompat"
-        />
+        android:theme="@style/appBarTheme"
+        app:popupTheme="@style/appBarTheme" />
+    <View
+        android:paddingTop="20sp"
+        android:layout_marginTop="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <Button
         android:id="@+id/events_button"
+        android:background="@android:color/transparent"
+        android:paddingTop="20sp"
+        android:layout_marginLeft="10sp"
+        android:paddingBottom="20sp"
+        android:theme="@style/AppTheme.Button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="115dp"
+        android:textSize="25sp"
         android:text="@string/view_events_button"
         app:layout_constraintStart_toStartOf="@+id/tickets_button"
         app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <Button
         android:id="@+id/tickets_button"
+        android:background="@android:color/transparent"
+        android:paddingTop="20sp"
+        android:layout_marginLeft="10sp"
+        android:paddingBottom="20sp"
+        android:theme="@style/AppTheme.Button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/view_tickets_button"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/events_button" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <Button
         android:id="@+id/button3"
+        android:background="@android:color/transparent"
+        android:paddingTop="20sp"
+        android:layout_marginLeft="10sp"
+        android:paddingBottom="20sp"
+        android:theme="@style/AppTheme.Button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="18dp"
+        android:textSize="25sp"
         android:text="@string/my_info_button"
         app:layout_constraintStart_toStartOf="@+id/tickets_button"
         app:layout_constraintTop_toBottomOf="@+id/tickets_button" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <Button
         android:id="@+id/qr_event_button"
@@ -62,6 +90,8 @@
 
     <Button
         android:id="@+id/signOutButton"
+        android:theme="@style/AppTheme.Button"
+        android:layout_marginTop="30sp"
         android:text = "Logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

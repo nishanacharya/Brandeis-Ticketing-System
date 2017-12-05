@@ -6,38 +6,51 @@
 
     <TextView
         android:id="@+id/ticket_name"
+        android:paddingTop="8sp"
+        android:paddingLeft="8sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:textSize="28sp"
+        android:paddingBottom="6sp"/>
 
     <TextView
         android:id="@+id/ticket_location"
+        android:paddingLeft="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ticket_name"
+        android:textSize="20sp"
+        android:paddingBottom="1sp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/ticket_date"
+        android:paddingLeft="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ticket_location"
+        android:textSize="20sp"
+        android:paddingBottom="1sp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/ticket_time"
+        android:paddingLeft="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ticket_date"
+        android:textSize="20sp"
+        android:paddingBottom="10sp"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -46,6 +59,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ticket_location"
         android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:paddingRight="40sp"
+        android:paddingBottom="1sp"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -55,16 +71,20 @@
         android:layout_above="@+id/ticket_price"
         android:layout_alignLeft="@+id/ticket_price"
         android:layout_alignStart="@+id/ticket_price"
+        android:textSize="20sp"
+        android:paddingRight="40sp"
         android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/delete_button"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/ticket_limit"
         android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:text="@string/delete_button" />
+        android:layout_marginRight="15dp"
+        android:textSize="15sp"
+        android:text="@string/delete_button"
+        android:theme="@style/AppTheme.Button"/>
 </RelativeLayout>

@@ -12,24 +12,33 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat"
-        app:popupTheme="@style/ThemeOverlay.AppCompat"
-        />
+        android:theme="@style/appBarTheme"
+        app:popupTheme="@style/appBarTheme" />
+
+    <View
+        android:paddingTop="20sp"
+        android:layout_marginTop="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
 
     <EditText
         android:inputType="text"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:hint= "Enter Name"
         android:id= "@+id/editTextName"
+        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
+
     <EditText
         android:inputType="textEmailAddress"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:hint= "Enter your email address"
@@ -38,10 +47,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
+
     <EditText
         android:inputType="textPassword"
-        android:gravity="center_vertical"
-        android:layout_gravity="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:hint= "Enter password"
@@ -50,19 +62,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/offblack" />
+
     <Button
         android:id="@+id/buttonSignUp"
         android:text = "Sign Up"
+        android:layout_marginTop="10sp"
+        android:textSize="24sp"
         android:theme="@style/AppTheme.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="right" />
 
     <Button
         android:id="@+id/buttonSignIn"
-        android:text= "Sign In"
+        android:text= "Back to Sign In"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="30sp"
+        android:textSize="16sp"
+        android:theme="@style/AppTheme.Button2"
+        />
 
 </LinearLayout>
 
