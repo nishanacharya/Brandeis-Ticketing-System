@@ -17,5 +17,13 @@
     <string name="create_event_button">Create an event</string>
     <string name="qr_reader">QR Reader</string>
     <string name="qr_generator">Generate QR Code</string>
-    
+    <string name="unique_qr_id">Unique ID</string>  handleResult
+
+    <string name="handleResult">handleResult</string>
+    <string name="scanResult">"Scan result"</string>
+    <string name="brandeis">brandeis</string>
+    <string name="admin1">fAoRjapHEqhGmTTHTH4mNu1DFAu1</string>
+    <string name="admin2">XEtFwBtFXGeq9iK2r0NYDJ6Lvj82</string>
+
+
 </resources>

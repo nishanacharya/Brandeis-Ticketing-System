@@ -32,7 +32,7 @@ public class QRGenerator extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_generator);
         imageView = (ImageView)findViewById(R.id.imageView);
-        convertToQR = getIntent().getStringExtra("Unique ID");  // Unique ID is created with userID + ticketID
+        convertToQR = getIntent().getStringExtra(getString(R.string.unique_qr_id));  // Unique ID is created with userID + ticketID
         TextView qrID = (TextView) findViewById(R.id.uniqueID);
         qrID.setText(convertToQR);
 
