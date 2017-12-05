@@ -3,12 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RelativeLay"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.MainActivity"
-    android:background="#FFF8E1">
+    android:background="@color/grey">
 
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/appBarTheme"
+        app:popupTheme="@style/appBarTheme" />
     <Button
         android:id="@+id/main_generate"
         android:layout_width="wrap_content"

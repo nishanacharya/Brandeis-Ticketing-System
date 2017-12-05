@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/ticket_location"
-        android:paddingLeft="18sp"
+        android:paddingLeft="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -27,11 +27,12 @@
         android:layout_below="@+id/ticket_name"
         android:textSize="20sp"
         android:paddingBottom="1sp"
+        android:paddingRight="40sp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/ticket_date"
-        android:paddingLeft="18sp"
+        android:paddingLeft="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -39,11 +40,12 @@
         android:layout_below="@+id/ticket_location"
         android:textSize="20sp"
         android:paddingBottom="1sp"
+        android:paddingRight="40sp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/ticket_time"
-        android:paddingLeft="18sp"
+        android:paddingLeft="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -51,6 +53,7 @@
         android:layout_below="@+id/ticket_date"
         android:textSize="20sp"
         android:paddingBottom="10sp"
+        android:paddingRight="40sp"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -60,6 +63,7 @@
         android:layout_below="@+id/ticket_location"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
+        android:paddingLeft="150sp"
         android:paddingRight="40sp"
         android:paddingBottom="1sp"
         android:textColor="@android:color/black" />
@@ -72,6 +76,7 @@
         android:layout_alignLeft="@+id/ticket_price"
         android:layout_alignStart="@+id/ticket_price"
         android:textSize="20sp"
+        android:paddingLeft="150sp"
         android:paddingRight="40sp"
         android:textColor="@android:color/black"/>
 
