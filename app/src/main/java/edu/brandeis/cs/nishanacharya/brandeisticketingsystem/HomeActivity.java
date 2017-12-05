@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference databaseReference;
 
     // Manually set two users as Admin: napril@brandeis.edu & acharyan@brandeis.edu.
-    private final String[] ADMINS = {getString(R.string.admin1), getString(R.string.admin2)};
+    private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
     private boolean admin;
 
     @Override
@@ -102,13 +102,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mEvents.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
-            }
-        });
-
-        Button mQR = (Button) findViewById(R.id.qr_event_button);
-        mQR.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, QRGenerator.class));
             }
         });
     }
