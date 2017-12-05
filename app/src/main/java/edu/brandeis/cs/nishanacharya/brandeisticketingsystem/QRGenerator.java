@@ -1,5 +1,6 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -20,25 +23,22 @@ import com.google.zxing.common.BitMatrix;
 
 public class QRGenerator extends AppCompatActivity{
     ImageView imageView;
-    Button button;
-    EditText editText;
-    String EditTextValue ;
-    Thread thread ;
-    public final static int QRcodeWidth = 500 ;
-    Bitmap bitmap ;
+    public final static int QRcodeWidth = 500;
+    Bitmap bitmap;
+    String convertToQR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_generator);
         imageView = (ImageView)findViewById(R.id.imageView);
-//        editText = (EditText)findViewById(R.id.enter_email);
-//        button = (Button)findViewById(R.id.generate);
+        convertToQR = getIntent().getStringExtra("Unique ID");  // Unique ID is created with userID + ticketID
+        TextView qrID = (TextView) findViewById(R.id.uniqueID);
+        qrID.setText(convertToQR);
 
-//        EditTextValue = editText.getText().toString();
 
         try {
-            bitmap = TextToImageEncode("123abc");
+            bitmap = TextToImageEncode(convertToQR);
 
             imageView.setImageBitmap(bitmap);
 

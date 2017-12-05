@@ -41,8 +41,13 @@ public class TicketViewerActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                TextView tID = (TextView) view.findViewById(R.id.event_name);
-                startActivity(new Intent(TicketViewerActivity.this, QRGenerator.class));
+                // Get user ID and ticket ID and send to QR Generator
+                String uniqueTicketID = "Placeholder";    // = userID + ticketID;
+
+
+                Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
+                QRActivity.putExtra("Unique ID", uniqueTicketID);
+                startActivity(QRActivity);
             }
         });
     }
