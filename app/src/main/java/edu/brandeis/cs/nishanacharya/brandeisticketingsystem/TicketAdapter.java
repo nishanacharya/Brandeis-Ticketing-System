@@ -37,8 +37,8 @@ class TicketAdapter extends ArrayAdapter {
         TextView location = view.findViewById(R.id.ticket_location);
         TextView date = view.findViewById(R.id.ticket_date);
         TextView time = view.findViewById(R.id.ticket_time);
-        TextView price = view.findViewById(R.id.ticket_price);
-        TextView limit = view.findViewById(R.id.ticket_limit);
+        //TextView price = view.findViewById(R.id.ticket_price);
+        //TextView limit = view.findViewById(R.id.ticket_limit);
 
         EventHolder event = list.get(position);
         final String event_name = event.getName();
@@ -47,8 +47,8 @@ class TicketAdapter extends ArrayAdapter {
             location.setText(event.getLocation());
             date.setText(event.getDate());
             time.setText(event.getTime());
-            price.setText(event.getPrice());
-            limit.setText(event.getLimit());
+            //price.setText(event.getPrice());
+            //limit.setText(event.getLimit());
         }
         return view;
     }

@@ -10,9 +10,7 @@
         android:paddingLeft="8sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:textColor="@android:color/black"
         android:textSize="28sp"
         android:paddingBottom="6sp"/>
@@ -27,8 +25,17 @@
         android:layout_below="@+id/ticket_name"
         android:textSize="20sp"
         android:paddingBottom="1sp"
-        android:paddingRight="40sp"
         android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">"
+        android:textSize="20sp"
+        android:layout_marginLeft="380sp"
+        android:layout_below="@+id/ticket_name"/>
+        <!--android:layout_toRightOf="@id/ticket_location"-->
 
     <TextView
         android:id="@+id/ticket_date"
@@ -40,44 +47,42 @@
         android:layout_below="@+id/ticket_location"
         android:textSize="20sp"
         android:paddingBottom="1sp"
-        android:paddingRight="40sp"
+        android:paddingRight="20sp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/ticket_time"
-        android:paddingLeft="28sp"
+        android:paddingLeft="10sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ticket_date"
+        android:layout_below="@id/ticket_location"
+        android:layout_toRightOf="@+id/ticket_date"
         android:textSize="20sp"
         android:paddingBottom="10sp"
-        android:paddingRight="40sp"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/ticket_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ticket_location"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:paddingLeft="150sp"
-        android:paddingRight="40sp"
-        android:paddingBottom="1sp"
-        android:textColor="@android:color/black" />
+    <!--<TextView-->
+        <!--android:id="@+id/ticket_price"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/ticket_location"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:textSize="20sp"-->
+        <!--android:paddingLeft="150sp"-->
+        <!--android:paddingRight="40sp"-->
+        <!--android:paddingBottom="1sp"-->
+        <!--android:textColor="@android:color/black" />-->
 
-    <TextView
-        android:id="@+id/ticket_limit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ticket_price"
-        android:layout_alignLeft="@+id/ticket_price"
-        android:layout_alignStart="@+id/ticket_price"
-        android:textSize="20sp"
-        android:paddingLeft="150sp"
-        android:paddingRight="40sp"
-        android:textColor="@android:color/black"/>
+    <!--<TextView-->
+        <!--android:id="@+id/ticket_limit"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/ticket_price"-->
+        <!--android:layout_alignLeft="@+id/ticket_price"-->
+        <!--android:layout_alignStart="@+id/ticket_price"-->
+        <!--android:textSize="20sp"-->
+        <!--android:paddingLeft="150sp"-->
+        <!--android:paddingRight="40sp"-->
+        <!--android:textColor="@android:color/black"/>-->
 
 </RelativeLayout>
