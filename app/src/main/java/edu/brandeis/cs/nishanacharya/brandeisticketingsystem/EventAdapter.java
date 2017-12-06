@@ -58,13 +58,5 @@ class EventAdapter extends SimpleCursorAdapter {
         price.setText(cursor.getString(cursor.getColumnIndex("event_price")));
         limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
 
-        Button add_button = view.findViewById(R.id.add_button);
-        add_button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                db.insertTicket(userName, event_name);
-                EventAdapter.super.changeCursor(db.getCursor());
-            }
-        });
     }
 }

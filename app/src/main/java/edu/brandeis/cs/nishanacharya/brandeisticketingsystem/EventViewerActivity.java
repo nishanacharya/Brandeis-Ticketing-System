@@ -1,8 +1,11 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 /**
@@ -26,6 +29,14 @@ public class EventViewerActivity extends AppCompatActivity {
                 R.id.event_price, R.id.event_limit};
         adapter = new EventAdapter(this, R.layout.event_entry, null, from, to, 0, "brandeis");
         listView.setAdapter(adapter);
+
+        // Calls QRcode generator when user clicks on a ticket in their list of tickets
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                startActivity(new Intent(EventViewerActivity.this, EventPageActivity.class));
+            }
+        });
     }
 
 }
