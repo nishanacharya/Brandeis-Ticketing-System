@@ -48,14 +48,14 @@ class EventAdapter extends SimpleCursorAdapter {
         TextView location = view.findViewById(R.id.event_location);
         TextView date = view.findViewById(R.id.event_date);
         TextView time = view.findViewById(R.id.event_time);
-        TextView price = view.findViewById(R.id.event_price);
+        //TextView price = view.findViewById(R.id.event_price);
         TextView limit = view.findViewById(R.id.event_limit);
 
         name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
         location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
         date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
         time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
-        price.setText(cursor.getString(cursor.getColumnIndex("event_price")));
+        //price.setText(cursor.getString(cursor.getColumnIndex("event_price")));
         limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
 
     }

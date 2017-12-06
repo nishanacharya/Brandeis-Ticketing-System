@@ -34,7 +34,8 @@
         android:text=">"
         android:textSize="20sp"
         android:layout_marginLeft="380sp"
-        android:layout_below="@+id/ticket_name"/>
+        android:layout_below="@+id/ticket_name"
+        android:textColor="@android:color/black"/>
         <!--android:layout_toRightOf="@id/ticket_location"-->
 
     <TextView
