@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:fillViewport="true">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -18,9 +20,15 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat"
-            app:popupTheme="@style/ThemeOverlay.AppCompat"
-            />
+            android:theme="@style/appBarTheme"
+            app:popupTheme="@style/appBarTheme" />
+
+        <View
+            android:paddingTop="20sp"
+            android:layout_marginTop="60sp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/offblack" />
 
         <EditText
             android:inputType="text"
@@ -30,7 +38,13 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="21sp"
             android:layout_weight="1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/offblack" />
 
         <EditText
             android:inputType="text"
@@ -40,7 +54,13 @@
             android:textColorHint="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>/>
+            android:textSize="21sp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/offblack" />
 
         <EditText
             android:inputType="text"
@@ -50,36 +70,71 @@
             android:textColorHint="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>/>
+            android:textSize="21sp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/offblack"
+            android:paddingBottom="20sp"
+            android:layout_marginBottom="30sp"/>
 
         <DatePicker
             android:id= "@+id/editEventDate"
             android:hint= "Enter Date"
-            android:calendarTextColor="@color/white"
-            android:background="@color/black"
+            style="@style/MyDatePickerStyle"
+            android:background="@color/greyDark"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:calendarTextColor="@color/black"
+            android:headerDayOfMonthTextAppearance="@color/colorAccent"
+            android:headerBackground="@color/colorPrimary"
+            android:dayOfWeekBackground="@color/colorPrimary"
+            android:dayOfWeekTextAppearance="@color/black"
+            android:paddingBottom="20sp"
+            android:layout_marginBottom="30sp"/>
 
         <TimePicker
             android:id= "@+id/editEventTime"
             android:hint= "Enter Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>/>
+            android:layout_weight="1"
+            android:background="@color/grey"
+            android:layout_gravity="center"
+            android:calendarTextColor="@color/black"
+            android:headerDayOfMonthTextAppearance="@color/colorAccent"
+            android:headerBackground="@color/colorPrimary"
+            android:dayOfWeekBackground="@color/colorPrimary"
+            android:dayOfWeekTextAppearance="@color/black"
+            android:paddingBottom="20sp"
+            android:layout_marginBottom="15sp"/>
 
         <Button
             android:id="@+id/buttonSaveEvent"
             android:text = "Save Event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:background="@color/colorPrimary"
+            style="@style/AppTheme.Button"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/buttonDeleteEvent"
             android:text = "Delete Event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:background="@color/grey"
+            style="@style/AppTheme.Button2"
+            android:textSize="16sp"
+            android:layout_marginBottom="30sp"/>
 
     </LinearLayout>
 </ScrollView>
