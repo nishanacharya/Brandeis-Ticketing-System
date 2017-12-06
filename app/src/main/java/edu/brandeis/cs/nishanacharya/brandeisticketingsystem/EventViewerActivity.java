@@ -23,10 +23,8 @@ public class EventViewerActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         final ListView listView = (ListView) findViewById(R.id.ticketListView);
-        String[] from = { "_id", "event_name", "event_location", "event_date",
-                "event_time", "event_price", "event_limit"};
-        int[] to = { R.id.event_name, R.id.event_location, R.id.event_date, R.id.event_time,
-                R.id.event_price, R.id.event_limit};
+        String[] from = { "_id", "event_name", "event_location", "event_date", "event_time"};
+        int[] to = { R.id.event_name, R.id.event_location, R.id.event_date, R.id.event_time };
         adapter = new EventAdapter(this, R.layout.event_entry, null, from, to, 0, "brandeis");
         listView.setAdapter(adapter);
 

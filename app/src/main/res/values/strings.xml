@@ -9,6 +9,9 @@
     <string name="name_label">Name</string>
     <string name="location_label">Location</string>
     <string name="time_label">Time</string>
+    <string name="save_button">SAVE</string>
+    <string name="cancel_button">CANCEL</string>
+    <string name="delete_button">DELETE</string>
     <string name="view_events_button">Buy Tickets</string>
     <string name="view_tickets_button">My Tickets</string>
     <string name="my_info_button">My info</string>

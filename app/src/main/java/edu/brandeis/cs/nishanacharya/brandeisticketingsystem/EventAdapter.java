@@ -27,12 +27,9 @@ class EventAdapter extends SimpleCursorAdapter {
     }
 
     public void insert(Intent data){
-        EventHolder holder = new EventHolder(data.getExtras().getString("name"),
+        db.insertEvent(data.getExtras().getString("name"), data.getExtras().getString("description"),
                 data.getExtras().getString("location"), data.getExtras().getString("date"),
-                data.getExtras().getString("time"), data.getExtras().getString("price"),
-                data.getExtras().getString("limit"));
-        db.insertEvent(holder.getName(), holder.getLocation(), holder.getTime(),
-                holder.getDate(), holder.getPrice(), holder.getLimit());
+                data.getExtras().getString("time"));
         EventAdapter.super.changeCursor(db.getCursor());
     }
 
@@ -42,21 +39,37 @@ class EventAdapter extends SimpleCursorAdapter {
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor){
-        final String event_name = cursor.getString(1);
-        TextView name = view.findViewById(R.id.event_name);
-        TextView location = view.findViewById(R.id.event_location);
-        TextView date = view.findViewById(R.id.event_date);
-        TextView time = view.findViewById(R.id.event_time);
-        TextView price = view.findViewById(R.id.event_price);
-        TextView limit = view.findViewById(R.id.event_limit);
+    public void bindView(View view, final Context context, Cursor cursor){
+        if(cursor != null) {
+            final String event_name = cursor.getString(1);
+            final String[] event_info = {cursor.getString(cursor.getColumnIndex("event_name")),
+                    cursor.getString(cursor.getColumnIndex("event_description")),
+                    cursor.getString(cursor.getColumnIndex("event_location")),
+                    cursor.getString(cursor.getColumnIndex("event_date")),
+                    cursor.getString(cursor.getColumnIndex("event_time")),
+                    cursor.getString(cursor.getColumnIndex("event_limit"))};
+            TextView name = view.findViewById(R.id.event_name);
+            TextView location = view.findViewById(R.id.event_location);
+            TextView date = view.findViewById(R.id.event_date);
+            TextView time = view.findViewById(R.id.event_time);
+            TextView limit = view.findViewById(R.id.event_limit);
 
-        name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
-        location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
-        date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
-        time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
-        price.setText(cursor.getString(cursor.getColumnIndex("event_price")));
-        limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
+            name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
+            location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
+            date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
+            time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
+            limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
 
+            /*Button add_button = view.findViewById(R.id.add_button);
+            add_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, EventPageActivity.class);
+                    intent.putExtra("event_info", event_info);
+                    intent.putExtra("userName", userName);
+                    context.startActivity(intent);
+                }
+            });*/
+        }
     }
 }

@@ -22,7 +22,7 @@ public class TicketViewerActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_tickets);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -30,7 +30,6 @@ public class TicketViewerActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.ticketListView);
         dh = new TicketDataHandler(this);
         list = dh.getData(getString(R.string.brandeis));
-        dh.testInsert();
         adapter = new TicketAdapter(this, R.layout.ticket_entry, list);
         listView.setAdapter(adapter);
 
@@ -39,7 +38,8 @@ public class TicketViewerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 // Get user ID and ticket ID and send to QR Generator
-                String uniqueTicketID = "Placeholder";    // = userID + ticketID;
+                String uniqueTicketID = savedInstanceState.getString("userId") +
+                        list.get(position).getUniqueEventId();    // = userID + ticketID;
 
 
                 Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);

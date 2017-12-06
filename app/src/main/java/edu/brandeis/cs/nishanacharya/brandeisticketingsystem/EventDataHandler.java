@@ -19,14 +19,13 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String USER_ID = "user_id";
     private static final String EVENT_NAME = "event_name";
+    private static final String EVENT_DESCRIPTION = "event_description";
     private static final String EVENT_LOCATION = "event_location";
     private static final String EVENT_DATE = "event_date";
     private static final String EVENT_TIME = "event_time";
-    private static final String EVENT_PRICE = "event_price";
-    private static final String EVENT_LIMIT = "event_limit";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 24);
+        super(context, DATABASE_NAME, null, 26);
     }
 
     @Override
@@ -40,11 +39,10 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_ID
                 + " integer primary key autoincrement, "
                 + EVENT_NAME
+                + " Text," + EVENT_DESCRIPTION
                 + " Text," + EVENT_LOCATION
                 + " Text," + EVENT_DATE
                 + " Text," + EVENT_TIME
-                + " Text," + EVENT_PRICE
-                + " Text," + EVENT_LIMIT
                 + " Text)");
     }
 
@@ -60,16 +58,15 @@ class EventDataHandler extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public void insertEvent(String Name, String Location, String Time, String Date, String Price, String Limit){
+    public void insertEvent(String Name, String Description, String Location, String Time, String Date){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("event_name", Name);
-        contentValues.put("event_location", Location);
-        contentValues.put("event_date", Date);
-        contentValues.put("event_time", Time);
-        contentValues.put("event_price", Price);
-        contentValues.put("event_limit", Limit);
+        contentValues.put(EVENT_NAME, Name);
+        contentValues.put(EVENT_DESCRIPTION, Description);
+        contentValues.put(EVENT_LOCATION, Location);
+        contentValues.put(EVENT_DATE, Date);
+        contentValues.put(EVENT_TIME, Time);
 
         db.insert(TABLE_NAME, null, contentValues);
     }
