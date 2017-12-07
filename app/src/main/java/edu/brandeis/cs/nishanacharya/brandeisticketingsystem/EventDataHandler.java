@@ -25,7 +25,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 35);
+        super(context, DATABASE_NAME, null, 38);
     }
 
     @Override
@@ -118,7 +118,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     private void insertTestData(SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(EVENT_NAME, "Into the Woods");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "In a story about getting what you wish for, the characters find the grass is not always greener.");
         contentValues.put(EVENT_LOCATION, "Mainstage Theater, Spingold");
         contentValues.put(EVENT_DATE, "2017/12/12");
         contentValues.put(EVENT_TIME, "18:00");
@@ -126,7 +126,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "Brandeis Jazz Ensemble");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "Features classics from the 50's");
         contentValues.put(EVENT_LOCATION, "Slosberg Music Center");
         contentValues.put(EVENT_DATE, "2017/12/09");
         contentValues.put(EVENT_TIME, "20:00");
@@ -134,7 +134,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "Lois Foster Gallery");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "Part of our “Collection at Work” an exhibition");
         contentValues.put(EVENT_LOCATION, "Rose Art Museum");
         contentValues.put(EVENT_DATE, "2018/01/04");
         contentValues.put(EVENT_TIME, "15:00");
@@ -142,7 +142,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "Mela");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "An annual charity show that promotes understanding and awareness of South Asian culture");
         contentValues.put(EVENT_LOCATION, "Levin Ballroom Usdan");
         contentValues.put(EVENT_DATE, "2018/03/04");
         contentValues.put(EVENT_TIME, "18:00");
@@ -150,7 +150,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "K-Nite");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "Showcasing a variety of exciting traditional and modern performances");
         contentValues.put(EVENT_LOCATION, "Levin Ballroom");
         contentValues.put(EVENT_DATE, "2018/03/04");
         contentValues.put(EVENT_TIME, "18:00");
@@ -158,7 +158,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "Library Party");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "The Library Party is back and better than ever! ");
         contentValues.put(EVENT_LOCATION, "Farber Library");
         contentValues.put(EVENT_DATE, "2017/12/14");
         contentValues.put(EVENT_TIME, "20:00");
@@ -166,7 +166,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, contentValues);
 
         contentValues.put(EVENT_NAME, "Senior Week Kickoff");
-        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_DESCRIPTION, "Kicking off an exciting week of celebration");
         contentValues.put(EVENT_LOCATION, "Great Lawn");
         contentValues.put(EVENT_DATE, "2018/05/14");
         contentValues.put(EVENT_TIME, "12:00");
