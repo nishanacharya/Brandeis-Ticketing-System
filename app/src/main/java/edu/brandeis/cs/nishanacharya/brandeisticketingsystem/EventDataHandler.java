@@ -84,9 +84,9 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(MASTER_TABLE_NAME, null, contentValues);
     }
 
-    public  void delete(String string){
+    public  void delete(String columnID){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{ string });
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{ columnID });
     }
 
     public void update(String columnID, ContentValues contentValues){

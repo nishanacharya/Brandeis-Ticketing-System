@@ -1,6 +1,7 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -12,6 +13,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -32,6 +36,8 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     final int REQUEST_CODE = 100;
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
+    private String[] eventInfo;
+    private String placeholder1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +57,27 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         ScannerView.startCamera();
 
         dh = new TicketDataHandler(this);
-        list = dh.getData(getString(R.string.brandeis));
+        list = dh.getData(FirebaseAuth.getInstance().getCurrentUser().toString());
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.home_Button:
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
 
     @Override
     public void onPause() {
@@ -62,7 +86,6 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     public void handleResult(Result result) {
-        ScannerView.stopCamera();
 
         // Do something with the result
         Log.w(getString(R.string.handleResult), result.getText());

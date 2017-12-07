@@ -90,6 +90,8 @@ class TicketDataHandler extends SQLiteOpenHelper {
                 holder.setLocation(c.getString(c.getColumnIndex(EVENT_LOCATION)));
                 holder.setDate(c.getString(c.getColumnIndex(EVENT_DATE)));
                 holder.setTime(c.getString(c.getColumnIndex(EVENT_TIME)));
+                holder.setUniqueEventId(c.getString(c.getColumnIndex(EVENT_NAME)) +
+                        c.getString(c.getColumnIndex(COLUMN_ID)));
                 list.add(holder);
             }
         }

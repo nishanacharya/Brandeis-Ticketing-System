@@ -11,6 +11,7 @@ class EventHolder {
     private String date;
     private String time;
     private String uniqueEventId;
+    private String description;
 
     public EventHolder(){}
 
@@ -31,6 +32,8 @@ class EventHolder {
 
     public String getUniqueEventId(){ return uniqueEventId; }
 
+    public String getDescription(){ return description; }
+
     public void setName(String Name){ name = Name; }
 
     public void setLocation(String Location){ location = Location; }
@@ -40,5 +43,7 @@ class EventHolder {
     public void setTime(String Time){ time = Time; }
 
     public void setUniqueEventId(String UniqueEventId){ uniqueEventId = UniqueEventId; }
+
+    public void setDescription(String Description){ description = Description; }
 }
 

@@ -3,10 +3,14 @@ package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -41,13 +45,36 @@ public class TicketViewerActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
                 // Get user ID and ticket ID and send to QR Generator
+                TextView ticketID = view.findViewById(R.id.eventUniqueID);
                 String uniqueTicketID = FirebaseAuth.getInstance().getCurrentUser().toString() +
-                        list.get(position).getName();    // = userID + ticketID;
+                        list.get(position).getUniqueEventId();    // = userID + ticketID;
+                String[] eventinfo = {list.get(position).getName(), list.get(position).getDescription(),
+                         list.get(position).getLocation(), list.get(position).getDate(),
+                        list.get(position).getTime(), list.get(position).getUniqueEventId(),};
 
                 Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
-                QRActivity.putExtra(getString(R.string.unique_qr_id), uniqueTicketID);
+                QRActivity.putExtra("uniqueTicketID", uniqueTicketID);
+                QRActivity.putExtra("eventInfo", eventinfo);
                 startActivity(QRActivity);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.home_Button:
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
     }
 }
