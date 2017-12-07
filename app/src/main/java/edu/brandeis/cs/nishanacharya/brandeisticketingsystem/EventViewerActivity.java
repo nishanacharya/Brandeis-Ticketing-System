@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Created by Triple Stuffed Oreo on 12/1/2017.
@@ -25,14 +26,25 @@ public class EventViewerActivity extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.ticketListView);
         String[] from = { "_id", "event_name", "event_location", "event_date", "event_time"};
         int[] to = { R.id.event_name, R.id.event_location, R.id.event_date, R.id.event_time };
-        adapter = new EventAdapter(this, R.layout.event_entry, null, from, to, 0, "brandeis");
+        adapter = new EventAdapter(this, R.layout.event_entry, null, from, to, 0);
         listView.setAdapter(adapter);
 
         // Calls QRcode generator when user clicks on a ticket in their list of tickets
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                startActivity(new Intent(EventViewerActivity.this, EventPageActivity.class));
+                TextView name = view.findViewById(R.id.event_name);
+                TextView description = view.findViewById(R.id.event_description);
+                TextView location = view.findViewById(R.id.event_location);
+                TextView date = view.findViewById(R.id.event_date);
+                TextView time = view.findViewById(R.id.event_time);
+                String[] eventInfo = {name.getText().toString(), description.getText().toString(),
+                            location.getText().toString(), date.getText().toString(),
+                            time.getText().toString()};
+
+                Intent intent = new Intent(EventViewerActivity.this, EventPageActivity.class);
+                intent.putExtra("eventInfo", eventInfo);
+                startActivity(intent);
             }
         });
     }

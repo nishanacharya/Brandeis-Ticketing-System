@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 /**
@@ -27,9 +29,9 @@ public class TicketViewerActivity extends AppCompatActivity {
         setContentView(R.layout.view_tickets);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        listView = (ListView) findViewById(R.id.ticketListView);
+        listView = findViewById(R.id.ticketListView);
         dh = new TicketDataHandler(this);
-        list = dh.getData(getString(R.string.brandeis));
+        list = dh.getData(FirebaseAuth.getInstance().getCurrentUser().getUid());
         adapter = new TicketAdapter(this, R.layout.ticket_entry, list);
         listView.setAdapter(adapter);
 
@@ -38,8 +40,8 @@ public class TicketViewerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 // Get user ID and ticket ID and send to QR Generator
-                String uniqueTicketID = savedInstanceState.getString("userId") +
-                        list.get(position).getUniqueEventId();    // = userID + ticketID;
+                String uniqueTicketID = FirebaseAuth.getInstance().getCurrentUser().toString() +
+                        list.get(position).getName();    // = userID + ticketID;
 
 
                 Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
