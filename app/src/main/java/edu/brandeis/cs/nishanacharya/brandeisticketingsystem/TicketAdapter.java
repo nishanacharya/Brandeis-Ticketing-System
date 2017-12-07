@@ -25,6 +25,7 @@ class TicketAdapter extends ArrayAdapter {
         this.context = context;
         list = objects;
 
+
     }
 
     public View getView(final int position, View view, ViewGroup parent) {

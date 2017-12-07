@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,8 @@ public class TicketViewerActivity extends AppCompatActivity {
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
     private ListView listView;
+    String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
 
     @Override
@@ -37,13 +41,8 @@ public class TicketViewerActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // Get user ID and ticket ID and send to QR Generator
-                String uniqueTicketID = savedInstanceState.getString("userId") +
-                        list.get(position).getUniqueEventId();    // = userID + ticketID;
-
 
                 Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
-                QRActivity.putExtra(getString(R.string.unique_qr_id), uniqueTicketID);
                 startActivity(QRActivity);
             }
         });
