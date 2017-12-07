@@ -61,6 +61,7 @@ class EventAdapter extends SimpleCursorAdapter {
             name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
             uniqueID.setText(cursor.getString(cursor.getColumnIndex("event_name")) +
                     cursor.getString(cursor.getColumnIndex("_id")));
+            description.setText(cursor.getString(cursor.getColumnIndex("event_description")));
             columnID.setText(cursor.getString(cursor.getColumnIndex("_id")));
             location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
             date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
