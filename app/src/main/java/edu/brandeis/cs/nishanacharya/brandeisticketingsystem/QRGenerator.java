@@ -43,7 +43,7 @@ public class QRGenerator extends AppCompatActivity{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
-        TextView qrID = (TextView) findViewById(R.id.uniqueID);
+        //TextView qrID = (TextView) findViewById(R.id.uniqueID);
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
         if(extras != null) {
@@ -53,7 +53,7 @@ public class QRGenerator extends AppCompatActivity{
             eventInfo = new String[]{};
         }
         convertToQR = userID + "~" + TicketID;
-        qrID.setText(convertToQR);
+        //qrID.setText(convertToQR);
 
         TextView name = findViewById(R.id.ticketName);
         TextView description = findViewById(R.id.ticketDescription);
