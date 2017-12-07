@@ -32,6 +32,13 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
         setSupportActionBar(myToolbar);
         eventDataHandler = new EventDataHandler(this);
         editEvent();
+
+        Intent receiveIntent = getIntent();
+        Bundle extras = receiveIntent.getExtras();
+        String ID;
+        if(extras != null) {
+            ID = extras.getString("ID");
+        }
     }
 
     private void editEvent() {

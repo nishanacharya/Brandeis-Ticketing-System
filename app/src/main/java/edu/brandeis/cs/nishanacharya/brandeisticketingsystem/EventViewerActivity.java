@@ -39,7 +39,11 @@ public class EventViewerActivity extends AppCompatActivity {
                 public void onItemClick (AdapterView < ? > adapterView, View view,int position,
                 long id){
                  if(isAdmin()){
-                    startActivity(new Intent(EventViewerActivity.this,EditEventActivity.class));
+                     TextView uniqueID = view.findViewById(R.id.eventUniqueID);
+
+                     Intent intent = new Intent(EventViewerActivity.this,EditEventActivity.class);
+                     intent.putExtra("ID",  uniqueID.getText().toString());
+                     startActivity(intent);
                  }  else {
                      TextView name = view.findViewById(R.id.event_name);
                      TextView description = view.findViewById(R.id.event_description);
