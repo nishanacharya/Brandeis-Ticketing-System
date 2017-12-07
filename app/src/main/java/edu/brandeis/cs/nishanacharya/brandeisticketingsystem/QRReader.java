@@ -31,7 +31,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
     private String[] eventInfo;
-    private String placeholder;
+    private String placeholder1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
