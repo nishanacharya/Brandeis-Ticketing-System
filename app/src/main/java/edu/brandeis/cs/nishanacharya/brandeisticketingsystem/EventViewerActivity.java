@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * Created by Triple Stuffed Oreo on 12/1/2017.
  */
@@ -16,6 +18,8 @@ import android.widget.TextView;
 public class EventViewerActivity extends AppCompatActivity {
 
     private EventAdapter adapter;
+    private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
+    private boolean admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +35,37 @@ public class EventViewerActivity extends AppCompatActivity {
 
         // Calls QRcode generator when user clicks on a ticket in their list of tickets
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                TextView name = view.findViewById(R.id.event_name);
-                TextView description = view.findViewById(R.id.event_description);
-                TextView location = view.findViewById(R.id.event_location);
-                TextView date = view.findViewById(R.id.event_date);
-                TextView time = view.findViewById(R.id.event_time);
-                String[] eventInfo = {name.getText().toString(), description.getText().toString(),
-                            location.getText().toString(), date.getText().toString(),
-                            time.getText().toString()};
+                @Override
+                public void onItemClick (AdapterView < ? > adapterView, View view,int position,
+                long id){
+                 if(isAdmin()){
+                    startActivity(new Intent(EventViewerActivity.this,EditEventActivity.class));
+                 }  else {
+                     TextView name = view.findViewById(R.id.event_name);
+                     TextView description = view.findViewById(R.id.event_description);
+                     TextView location = view.findViewById(R.id.event_location);
+                     TextView date = view.findViewById(R.id.event_date);
+                     TextView time = view.findViewById(R.id.event_time);
+                     String[] eventInfo = {name.getText().toString(), description.getText().toString(),
+                             location.getText().toString(), date.getText().toString(),
+                             time.getText().toString()};
 
-                Intent intent = new Intent(EventViewerActivity.this, EventPageActivity.class);
-                intent.putExtra("eventInfo", eventInfo);
-                startActivity(intent);
+                     Intent intent = new Intent(EventViewerActivity.this, EventPageActivity.class);
+                     intent.putExtra("eventInfo", eventInfo);
+                     startActivity(intent);
+                 }
             }
         });
+
+    }
+
+    private boolean isAdmin(){
+        for(int i =0; i < this.ADMINS.length; i++){
+            if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(ADMINS[i])){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
