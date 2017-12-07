@@ -16,6 +16,8 @@
         android:elevation="4dp"
         android:theme="@style/appBarTheme"
         app:popupTheme="@style/appBarTheme" />
+
+
     <TextView
         android:id="@+id/uniqueID"
         android:layout_width="wrap_content"
@@ -31,5 +33,29 @@
         android:layout_gravity="center"
         android:layout_marginTop="50sp"
         />
+
+    <TextView
+        android:id="@+id/ticketName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/ticketDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/ticketLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/ticketDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </LinearLayout>
