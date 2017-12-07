@@ -35,9 +35,9 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
 
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
-        String ID;
+        String[] eventInfo;
         if(extras != null) {
-            ID = extras.getString("ID");
+            eventInfo = extras.getStringArray("eventInfo");
         }
     }
 
