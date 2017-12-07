@@ -43,12 +43,12 @@ public class QRActivity extends AppCompatActivity {
     public void generate_QR(View view) {
         Intent intent_generate = new Intent(this, QRGenerator.class);
         intent_generate.putExtra("uniqueTicketID", uniqueTicketID);
+        intent_generate.putExtra("eventInfo", eventInfo);
         startActivity(intent_generate);
     }
 
     public void read_QR(View view) {
         Intent intent_read = new Intent(this, QRReader.class);
-        intent_read.putExtra("eventInfo", eventInfo);
         startActivity(intent_read);
     }
 

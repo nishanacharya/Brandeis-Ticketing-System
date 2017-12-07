@@ -29,6 +29,7 @@ public class QRGenerator extends AppCompatActivity{
     Bitmap bitmap;
     String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
     String TicketID;
+    String[] eventInfo;
     String convertToQR;
 
 
@@ -45,6 +46,9 @@ public class QRGenerator extends AppCompatActivity{
         Bundle extras = receiveIntent.getExtras();
         if(extras != null) {
             TicketID = extras.getString("uniqueTicketID");
+            eventInfo = extras.getStringArray("eventInfo");
+        } else {
+            eventInfo = new String[]{};
         }
         convertToQR = userID + "~" + TicketID;
         qrID.setText(convertToQR);

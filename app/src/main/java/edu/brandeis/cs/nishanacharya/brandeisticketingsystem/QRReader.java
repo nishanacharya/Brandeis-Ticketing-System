@@ -43,14 +43,6 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, REQUEST_CODE);
         }
 
-        Intent receiveIntent = getIntent();
-        Bundle extras = receiveIntent.getExtras();
-        if(extras != null) {
-            eventInfo = extras.getStringArray("eventInfo");
-        } else {
-            eventInfo = new String[]{};
-        }
-
         // Open QR Code reader
         ScannerView = new ZXingScannerView(QRReader.this);
         setContentView(ScannerView);
