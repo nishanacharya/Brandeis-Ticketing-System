@@ -80,6 +80,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     ArrayList getData(String UserName){
+        //System.out.println(UserName);
         ArrayList<EventHolder> list = new ArrayList<>();
         ArrayList<String> userTickets = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -93,7 +94,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         int size = userTickets.size();
-        System.out.println(size);
 
         while(c.moveToNext() && size > 0){
             if(userTickets.contains(c.getString(1))) {
@@ -108,11 +108,10 @@ class TicketDataHandler extends SQLiteOpenHelper {
         return list;
     }
 
-    /*public void testInsert(){
-        insertEvent("Finals", "Golding 101", "6PM-9PM", "December 12th", "FREE", "150");
-        insertEvent("Concert", "Levin Ballroom", "8PM-10PM", "April 24th", "FREE", "500");
-        insertEvent("Party","Farber Library", "9PM-12PM", "November 12th", "FREE", "250");
-        insertEvent("Graduation", "Gosman Gym", "10AM", "May 22nd", "Free", "800");
-        insertTicket("brandeis", "Finals");
-    }*/
+    public void testInsert(){
+        insertEvent("Finals", "Golding 101", "6PM-9PM", "December 12th");
+        insertEvent("Concert", "Levin Ballroom", "8PM-10PM", "April 24th");
+        insertEvent("Party","Farber Library", "9PM-12PM", "November 12th");
+        insertEvent("Graduation", "Gosman Gym", "10AM", "May 22nd");
+    }
 }

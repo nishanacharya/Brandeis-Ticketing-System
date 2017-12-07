@@ -18,12 +18,13 @@
         android:paddingBottom="6sp"/>
 
     <TextView
-        android:id="@+id/event_limit"
+        android:id="@+id/event_description"
         android:layout_marginLeft="370sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:textSize="20sp"
+        android:visibility="gone"
         android:textColor="@android:color/black"/>
 
 
