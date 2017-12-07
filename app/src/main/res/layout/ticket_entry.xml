@@ -62,6 +62,26 @@
         android:paddingBottom="10sp"
         android:textColor="@android:color/black" />
 
+    <TextView
+        android:id="@+id/ticket_ID"
+        android:paddingLeft="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ticket_location"
+        android:layout_toRightOf="@+id/ticket_date"
+        android:paddingBottom="10sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/ticket_description"
+        android:paddingLeft="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ticket_location"
+        android:layout_toRightOf="@+id/ticket_date"
+        android:paddingBottom="10sp"
+        android:visibility="gone" />
+
     <!--<TextView-->
         <!--android:id="@+id/ticket_price"-->
         <!--android:layout_width="wrap_content"-->

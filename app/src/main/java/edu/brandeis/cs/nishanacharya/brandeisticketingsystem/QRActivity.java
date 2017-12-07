@@ -9,6 +9,8 @@ import android.widget.Button;
 
 
 public class QRActivity extends AppCompatActivity {
+    private String uniqueTicketID;
+    private String[] eventInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,13 @@ public class QRActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         final Button button_generate = (Button) findViewById(R.id.main_generate);
         final Button button_read = (Button) findViewById(R.id.main_read);
+
+        Intent receiveIntent = getIntent();
+        Bundle extras = receiveIntent.getExtras();
+        if(extras != null) {
+            uniqueTicketID = extras.getString("uniqueTicketID");
+            eventInfo = extras.getStringArray("eventInfo");
+        }
 
         button_generate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -33,11 +42,13 @@ public class QRActivity extends AppCompatActivity {
 
     public void generate_QR(View view) {
         Intent intent_generate = new Intent(this, QRGenerator.class);
+        intent_generate.putExtra("uniqueTicketID", uniqueTicketID);
         startActivity(intent_generate);
     }
 
     public void read_QR(View view) {
         Intent intent_read = new Intent(this, QRReader.class);
+        intent_read.putExtra("eventInfo", eventInfo);
         startActivity(intent_read);
     }
 

@@ -80,7 +80,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     ArrayList getData(String UserName){
-        //System.out.println(UserName);
         ArrayList<EventHolder> list = new ArrayList<>();
         ArrayList<String> userTickets = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -102,16 +101,11 @@ class TicketDataHandler extends SQLiteOpenHelper {
                 holder.setLocation(c.getString(c.getColumnIndex(EVENT_LOCATION)));
                 holder.setDate(c.getString(c.getColumnIndex(EVENT_DATE)));
                 holder.setTime(c.getString(c.getColumnIndex(EVENT_TIME)));
+                holder.setUniqueEventId(c.getString(c.getColumnIndex(EVENT_NAME)) +
+                        c.getString(c.getColumnIndex(COLUMN_ID)));
                 list.add(holder);
             }
         }
         return list;
-    }
-
-    public void testInsert(){
-        insertEvent("Finals", "Golding 101", "6PM-9PM", "December 12th");
-        insertEvent("Concert", "Levin Ballroom", "8PM-10PM", "April 24th");
-        insertEvent("Party","Farber Library", "9PM-12PM", "November 12th");
-        insertEvent("Graduation", "Gosman Gym", "10AM", "May 22nd");
     }
 }

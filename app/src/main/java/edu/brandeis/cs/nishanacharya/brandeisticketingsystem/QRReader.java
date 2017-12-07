@@ -1,6 +1,7 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -29,6 +30,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     final int REQUEST_CODE = 100;
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
+    private String[] eventInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,14 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, REQUEST_CODE);
         }
 
+        Intent receiveIntent = getIntent();
+        Bundle extras = receiveIntent.getExtras();
+        if(extras != null) {
+            eventInfo = extras.getStringArray("eventInfo");
+        } else {
+            eventInfo = new String[]{};
+        }
+
         // Open QR Code reader
         ScannerView = new ZXingScannerView(QRReader.this);
         setContentView(ScannerView);
@@ -48,7 +58,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         ScannerView.startCamera();
 
         dh = new TicketDataHandler(this);
-        list = dh.getData(getString(R.string.brandeis));
+        list = dh.getData(FirebaseAuth.getInstance().getCurrentUser().toString());
 
     }
 

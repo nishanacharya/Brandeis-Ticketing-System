@@ -28,7 +28,8 @@ public class QRGenerator extends AppCompatActivity{
     public final static int QRcodeWidth = 500;
     Bitmap bitmap;
     String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    String convertToQR = userID + "~" + "TICKETID";
+    String TicketID;
+    String convertToQR;
 
 
 
@@ -40,6 +41,12 @@ public class QRGenerator extends AppCompatActivity{
         setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
         TextView qrID = (TextView) findViewById(R.id.uniqueID);
+        Intent receiveIntent = getIntent();
+        Bundle extras = receiveIntent.getExtras();
+        if(extras != null) {
+            TicketID = extras.getString("uniqueTicketID");
+        }
+        convertToQR = userID + "~" + TicketID;
         qrID.setText(convertToQR);
 
 
