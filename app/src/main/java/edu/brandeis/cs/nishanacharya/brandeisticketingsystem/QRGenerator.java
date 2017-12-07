@@ -62,11 +62,12 @@ public class QRGenerator extends AppCompatActivity{
         TextView description = findViewById(R.id.ticketDescription);
         TextView location = findViewById(R.id.ticketLocation);
         TextView date = findViewById(R.id.ticketDate);
-        TextView time = findViewById(R.id.ticket_time);
-        name.setText(eventInfo[1]);
-        description.setText(eventInfo[2]);
-        location.setText(eventInfo[3]);
-        date.setText(eventInfo[4]);
+        TextView time = findViewById(R.id.ticketTime);
+        name.setText(eventInfo[0]);
+        description.setText(eventInfo[1]);
+        location.setText(eventInfo[2]);
+        date.setText(eventInfo[3]);
+        time.setText(eventInfo[4]);
 
 
         try {
