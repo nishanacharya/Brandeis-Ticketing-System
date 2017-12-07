@@ -52,6 +52,7 @@ class EventAdapter extends SimpleCursorAdapter {
                     cursor.getString(cursor.getColumnIndex("event_time"))};
             TextView name = view.findViewById(R.id.event_name);
             TextView uniqueID = view.findViewById(R.id.eventUniqueID);
+            TextView columnID = view.findViewById(R.id.columnID);
             TextView description = view.findViewById(R.id.event_description);
             TextView location = view.findViewById(R.id.event_location);
             TextView date = view.findViewById(R.id.event_date);
@@ -60,6 +61,7 @@ class EventAdapter extends SimpleCursorAdapter {
             name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
             uniqueID.setText(cursor.getString(cursor.getColumnIndex("event_name")) +
                     cursor.getString(cursor.getColumnIndex("_id")));
+            columnID.setText(cursor.getString(cursor.getColumnIndex("_id")));
             location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
             date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
             time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
