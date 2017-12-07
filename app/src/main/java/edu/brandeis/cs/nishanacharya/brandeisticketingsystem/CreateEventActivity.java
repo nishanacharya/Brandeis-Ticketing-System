@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -78,6 +79,8 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         if(view == buttonCreateEvent){
+            Log.w("Create Event",editEventName.getText().toString() + " " + editEventDescription.getText().toString() + " " + editEventLocation.getText().toString()  + " " + date + " " + time);
+
             if(editEventName.getText().toString().equals("") || editEventDescription.getText().toString().equals("")|| editEventLocation.getText().toString().equals("")|| date.equals("")|| time.equals("")){
                 Toast.makeText(CreateEventActivity.this, "Please enter all the information", Toast.LENGTH_SHORT).show();
             } else {

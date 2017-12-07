@@ -20,12 +20,17 @@ class EventAdapter extends SimpleCursorAdapter {
 
     private EventDataHandler db;
     private String userName;
+    EventDataHandler dh;
+
 
     public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags){
         super(context, layout, c, from, to, flags);
         db = new EventDataHandler(context);
         this.userName = userName;
         super.changeCursor(db.getCursor());
+        dh = new EventDataHandler(context);
+//        dh.testInsert();
+
     }
 
     public void insert(Intent data){

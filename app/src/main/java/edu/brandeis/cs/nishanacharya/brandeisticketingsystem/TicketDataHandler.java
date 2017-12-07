@@ -29,7 +29,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public TicketDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 29);
+        super(context, DATABASE_NAME, null, 35);
 
     }
 
@@ -53,18 +53,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
         return db.rawQuery("SELECT " + USER_ID + " FROM " + TABLE_NAME + " WHERE user_id = '" + UserName + "'", null);
     }
 
-    public void insertEvent(String Name, String Location, String Time, String Date){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(EVENT_NAME, Name);
-        contentValues.put(EVENT_LOCATION, Location);
-        contentValues.put(EVENT_DATE, Date);
-        contentValues.put(EVENT_TIME, Time);
-
-        db.insert(TABLE_NAME, null, contentValues);
-    }
-
     public void insertTicket(String UserName, String EventName){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -81,7 +69,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     ArrayList getData(String UserName){
-        //System.out.println(UserName);
         ArrayList<EventHolder> list = new ArrayList<>();
         ArrayList<String> userTickets = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -108,16 +95,4 @@ class TicketDataHandler extends SQLiteOpenHelper {
         }
         return list;
     }
-
-    public void testInsert(){
-        insertEvent("Into the Woods", "Mainstage Theater, Spingold", "18:00", "2017/12/12");
-        insertEvent("Brandeis Jazz Ensemble", "Slosberg Music Center", "20:00", "2017/12/09");
-        insertEvent("Lois Foster Gallery","Rose Art Museum", "15:00", "2018/01/04");
-        insertEvent("Mela", "Levin Ballroom Usdan", "18:00", "2017/12/10");
-        insertEvent("K-Nite", "Levin Ballroom", "18:00", "2018/03/04");
-        insertEvent("Senior Week Kickoff", "Great Lawn", "12:00", "2018/05/14");
-        insertEvent("Library Party","Farber Library", "20:00", "2017/12/14");
-    }
 }
-
-// 2017/12/04 18:10:45

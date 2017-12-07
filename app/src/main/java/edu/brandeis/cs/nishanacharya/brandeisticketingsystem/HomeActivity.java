@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button signOutButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    public boolean testInserted = false;
 
     // Manually set two users as Admin: napril@brandeis.edu & acharyan@brandeis.edu.
     private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};

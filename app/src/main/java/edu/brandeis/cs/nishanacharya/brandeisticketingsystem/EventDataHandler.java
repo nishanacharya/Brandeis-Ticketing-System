@@ -25,7 +25,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 29);
+        super(context, DATABASE_NAME, null, 35);
     }
 
     @Override
@@ -44,7 +44,10 @@ class EventDataHandler extends SQLiteOpenHelper {
                 + " Text," + EVENT_DATE
                 + " Text," + EVENT_TIME
                 + " Text)");
+
+        insertTestData(db);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -98,5 +101,76 @@ class EventDataHandler extends SQLiteOpenHelper {
             cur.moveToFirst();
         }
         return cur.getInt(0) == 0;
+    }
+
+    public void insertEvent(String Name, String Location, String Time, String Date){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(EVENT_NAME, Name);
+        contentValues.put(EVENT_LOCATION, Location);
+        contentValues.put(EVENT_DATE, Date);
+        contentValues.put(EVENT_TIME, Time);
+
+        db.insert(TABLE_NAME, null, contentValues);
+    }
+
+    private void insertTestData(SQLiteDatabase db) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(EVENT_NAME, "Into the Woods");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Mainstage Theater, Spingold");
+        contentValues.put(EVENT_DATE, "2017/12/12");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Brandeis Jazz Ensemble");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Slosberg Music Center");
+        contentValues.put(EVENT_DATE, "2017/12/09");
+        contentValues.put(EVENT_TIME, "20:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Lois Foster Gallery");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Rose Art Museum");
+        contentValues.put(EVENT_DATE, "2018/01/04");
+        contentValues.put(EVENT_TIME, "15:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Mela");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Levin Ballroom Usdan");
+        contentValues.put(EVENT_DATE, "2018/03/04");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "K-Nite");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Levin Ballroom");
+        contentValues.put(EVENT_DATE, "2018/03/04");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Library Party");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Farber Library");
+        contentValues.put(EVENT_DATE, "2017/12/14");
+        contentValues.put(EVENT_TIME, "20:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Senior Week Kickoff");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Great Lawn");
+        contentValues.put(EVENT_DATE, "2018/05/14");
+        contentValues.put(EVENT_TIME, "12:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
     }
 }
