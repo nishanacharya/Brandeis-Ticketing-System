@@ -12,8 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.Result;
 
+
+import java.util.ArrayList;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -24,6 +27,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class QRReader extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView ScannerView;
     final int REQUEST_CODE = 100;
+    TicketDataHandler dh;
+    private ArrayList<EventHolder> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,9 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         ScannerView.setResultHandler(QRReader.this);
         ScannerView.startCamera();
 
+        dh = new TicketDataHandler(this);
+        list = dh.getData(getString(R.string.brandeis));
+
     }
 
     @Override
@@ -52,10 +60,16 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
 
     public void handleResult(Result result) {
         // Do something with the result
+        String scanResult = null;
         Log.w(getString(R.string.handleResult), result.getText());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.scanResult));
-        builder.setMessage(result.getText());
+
+        String[] userAndTicket = result.getText().split("~");
+        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+//        String eventName = list.get(position).getUniqueEventId();   // position is index of event in db?
+        scanResult = userAndTicket[1];
+        builder.setMessage(scanResult);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 

@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button editEvent = (Button) findViewById(R.id.edit_event_button);
         editEvent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, EditEventActivity.class));
+                startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
             }
         });
 
