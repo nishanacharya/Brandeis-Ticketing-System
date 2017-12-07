@@ -25,7 +25,7 @@ class TicketAdapter extends ArrayAdapter {
         this.context = context;
         list = objects;
         dh = new TicketDataHandler(context);
-//        dh.testInsert();
+        //dh.testInsert();
     }
 
     public View getView(final int position, View view, ViewGroup parent) {
