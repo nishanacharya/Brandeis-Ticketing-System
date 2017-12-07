@@ -39,10 +39,10 @@ public class TicketViewerActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
                 // Get user ID and ticket ID and send to QR Generator
                 String uniqueTicketID = FirebaseAuth.getInstance().getCurrentUser().toString() +
                         list.get(position).getName();    // = userID + ticketID;
-
 
                 Intent QRActivity =new Intent(TicketViewerActivity.this, QRGenerator.class);
                 QRActivity.putExtra(getString(R.string.unique_qr_id), uniqueTicketID);
