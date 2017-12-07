@@ -57,6 +57,7 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
         buttonEditEvent = (Button) findViewById(R.id.buttonSaveEvent);
         buttonDeleteEvent = (Button) findViewById(R.id.buttonDeleteEvent);
         buttonEditEvent.setOnClickListener(this);
+        buttonDeleteEvent.setOnClickListener(this);
         prefill();
     }
 
