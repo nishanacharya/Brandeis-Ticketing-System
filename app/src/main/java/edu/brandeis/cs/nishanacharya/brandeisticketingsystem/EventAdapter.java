@@ -71,5 +71,6 @@ class EventAdapter extends SimpleCursorAdapter {
                 }
             });*/
         }
+        String test = "test";
     }
 }
