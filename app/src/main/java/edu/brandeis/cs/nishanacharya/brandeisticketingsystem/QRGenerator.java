@@ -19,6 +19,8 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by rebeccashi on 12/2/17.
  */
@@ -52,6 +54,15 @@ public class QRGenerator extends AppCompatActivity{
         }
         convertToQR = userID + "~" + TicketID;
         qrID.setText(convertToQR);
+
+        TextView name = findViewById(R.id.ticketName);
+        TextView description = findViewById(R.id.ticketDescription);
+        TextView location = findViewById(R.id.ticketLocation);
+        TextView date = findViewById(R.id.ticketDate);
+        name.setText(eventInfo[1]);
+        description.setText(eventInfo[2]);
+        location.setText(eventInfo[3]);
+        date.setText(eventInfo[4]);
 
 
         try {
