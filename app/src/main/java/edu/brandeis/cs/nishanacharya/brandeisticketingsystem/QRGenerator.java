@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +62,7 @@ public class QRGenerator extends AppCompatActivity{
         TextView description = findViewById(R.id.ticketDescription);
         TextView location = findViewById(R.id.ticketLocation);
         TextView date = findViewById(R.id.ticketDate);
+        TextView time = findViewById(R.id.ticket_time);
         name.setText(eventInfo[1]);
         description.setText(eventInfo[2]);
         location.setText(eventInfo[3]);
@@ -75,6 +79,25 @@ public class QRGenerator extends AppCompatActivity{
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.home_Button:
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
     Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
         try {
