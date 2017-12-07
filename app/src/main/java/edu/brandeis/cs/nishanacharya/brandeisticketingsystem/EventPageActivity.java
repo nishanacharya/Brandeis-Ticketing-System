@@ -29,10 +29,12 @@ public class EventPageActivity extends AppCompatActivity {
     String eventLocation;
     String eventDescription;
     String eventDate;
+    String eventTime;
     int EVENT_NAME = 0;
     int EVENT_DESCRIPTION = 1;
     int EVENT_LOCATION = 2;
     int EVENT_DATE = 3;
+    int EVENT_TIME = 4;
     TicketDataHandler dh;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class EventPageActivity extends AppCompatActivity {
             this.eventDescription = eventInfo[EVENT_DESCRIPTION];
             this.eventLocation = eventInfo[EVENT_LOCATION];
             this.eventDate = eventInfo[EVENT_DATE];     // Must be in the format "2017/12/04 18:10:45"
+            this.eventTime = eventInfo[EVENT_TIME] + ":00";
         }
         final TextView name = findViewById(R.id.eventName);
         TextView location = findViewById(R.id.eventLocation);
@@ -101,7 +104,7 @@ public class EventPageActivity extends AppCompatActivity {
         long millis = 0;
 
         try {
-            date = sdf.parse(eventDate);
+            date = sdf.parse(this.eventDate + " " + this.eventTime);
             millis = date.getTime();
         } catch (ParseException e) {
             e.printStackTrace();

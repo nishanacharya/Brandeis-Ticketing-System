@@ -25,7 +25,7 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 27);
+        super(context, DATABASE_NAME, null, 29);
     }
 
     @Override

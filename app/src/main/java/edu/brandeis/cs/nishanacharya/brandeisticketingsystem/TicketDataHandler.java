@@ -29,7 +29,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public TicketDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 27);
+        super(context, DATABASE_NAME, null, 29);
     }
 
     @Override
@@ -109,12 +109,14 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     public void testInsert(){
-        insertEvent("Into the Woods", "Mainstage Theater, Spingold", "6PM-9PM", "December 12th");
-        insertEvent("Brandeis Jazz Ensemble", "Slosberg Music Center", "8PM", "December 20th");
-        insertEvent("Lois Foster Gallery","Rose Art Museum", "9PM", "January 12th");
-        insertEvent("Mela", "Levin Ballroom Usdan", "6PM", "February 22nd");
-        insertEvent("K-Nite", "Levin Ballroom", "8PM-10PM", "April 24th");
-        insertEvent("Senior Week Kickoff", "Great Lawn", "12PM", "May 12th");
-        insertEvent("Library Party","Farber Library", "9PM-12PM", "November 12th");
+        insertEvent("Into the Woods", "Mainstage Theater, Spingold", "18:00", "2017/12/12");
+        insertEvent("Brandeis Jazz Ensemble", "Slosberg Music Center", "20:00", "2017/12/09");
+        insertEvent("Lois Foster Gallery","Rose Art Museum", "15:00", "2018/01/04");
+        insertEvent("Mela", "Levin Ballroom Usdan", "18:00", "2017/12/10");
+        insertEvent("K-Nite", "Levin Ballroom", "18:00", "2018/03/04");
+        insertEvent("Senior Week Kickoff", "Great Lawn", "12:00", "2018/05/14");
+        insertEvent("Library Party","Farber Library", "20:00", "2017/12/14");
     }
 }
+
+// 2017/12/04 18:10:45
