@@ -62,13 +62,13 @@ public class EventPageActivity extends AppCompatActivity {
         TextView location = findViewById(R.id.eventLocation);
         TextView description = findViewById(R.id.eventDescription);
         TextView date = findViewById(R.id.eventDate);
-        TextView time = findViewById(R.id.eventTime);
+//        TextView time = findViewById(R.id.eventTime);
 
         name.setText(eventName);
         description.setText(eventDescription);
         location.setText(eventLocation);
         date.setText(eventDate);
-        time.setText(eventTime);
+//        time.setText(eventTime);
 
 
         Button add_button = findViewById(R.id.purchaseEvent);
