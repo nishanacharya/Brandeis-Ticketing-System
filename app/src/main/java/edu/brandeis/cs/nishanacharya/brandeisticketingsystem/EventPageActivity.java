@@ -73,7 +73,6 @@ public class EventPageActivity extends AppCompatActivity {
                 dh = new TicketDataHandler(view.getContext());
                 if(extras != null) {
                     dh.insertTicket(FirebaseAuth.getInstance().getCurrentUser().getUid(), name.getText().toString());
-                    System.out.println(name.getText().toString());
                 }
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
