@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
-
 import java.util.ArrayList;
 
 /**
@@ -20,15 +18,17 @@ class TicketAdapter extends ArrayAdapter {
 
     ArrayList<EventHolder> list;
     Context context;
+    TicketDataHandler dh;
 
     public TicketAdapter(Context context, int resource, ArrayList objects) {
         super(context, resource, objects);
         this.context = context;
         list = objects;
-
+        dh = new TicketDataHandler(context);
+        //dh.testInsert();
     }
 
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.ticket_entry, parent, false);
@@ -37,18 +37,17 @@ class TicketAdapter extends ArrayAdapter {
         TextView location = view.findViewById(R.id.ticket_location);
         TextView date = view.findViewById(R.id.ticket_date);
         TextView time = view.findViewById(R.id.ticket_time);
-        TextView price = view.findViewById(R.id.ticket_price);
-        TextView limit = view.findViewById(R.id.ticket_limit);
+        TextView uniqueID = view.findViewById(R.id.ticket_ID);
+        TextView description = view.findViewById(R.id.ticket_description);
 
         EventHolder event = list.get(position);
-        final String event_name = event.getName();
         if(event != null) {
             name.setText(event.getName());
             location.setText(event.getLocation());
             date.setText(event.getDate());
             time.setText(event.getTime());
-            price.setText(event.getPrice());
-            limit.setText(event.getLimit());
+            uniqueID.setText(event.getUniqueEventId());
+            description.setText(event.getDescription());
         }
         return view;
     }

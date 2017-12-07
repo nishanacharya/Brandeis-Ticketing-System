@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button signOutButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    public boolean testInserted = false;
 
     // Manually set two users as Admin: napril@brandeis.edu & acharyan@brandeis.edu.
     private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
@@ -94,7 +95,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button editEvent = (Button) findViewById(R.id.edit_event_button);
         editEvent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, EditEventActivity.class));
+                startActivity(new Intent(HomeActivity.this, EventViewerActivity.class));
             }
         });
 

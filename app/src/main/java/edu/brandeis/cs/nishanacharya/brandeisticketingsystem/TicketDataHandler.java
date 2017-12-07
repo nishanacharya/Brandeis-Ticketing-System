@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import java.util.Date;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +23,14 @@ class TicketDataHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String USER_ID = "user_id";
     private static final String EVENT_NAME = "event_name";
+    private static final String EVENT_DESCRIPTION = "event_description";
     private static final String EVENT_LOCATION = "event_location";
     private static final String EVENT_DATE = "event_date";
     private static final String EVENT_TIME = "event_time";
-    private static final String EVENT_PRICE = "event_price";
-    private static final String EVENT_LIMIT = "event_limit";
 
     public TicketDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 24);
+        super(context, DATABASE_NAME, null, 35);
+
     }
 
     @Override
@@ -51,20 +51,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
     public Cursor getCursor(String UserName){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT " + USER_ID + " FROM " + TABLE_NAME + " WHERE user_id = '" + UserName + "'", null);
-    }
-
-    public void insertEvent(String Name, String Location, String Time, String Date, String Price, String Limit){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(EVENT_NAME, Name);
-        contentValues.put(EVENT_LOCATION, Location);
-        contentValues.put(EVENT_DATE, Date);
-        contentValues.put(EVENT_TIME, Time);
-        contentValues.put(EVENT_PRICE, Price);
-        contentValues.put(EVENT_LIMIT, Limit);
-
-        db.insert(TABLE_NAME, null, contentValues);
     }
 
     public void insertTicket(String UserName, String EventName){
@@ -96,7 +82,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         int size = userTickets.size();
-        System.out.println(size);
 
         while(c.moveToNext() && size > 0){
             if(userTickets.contains(c.getString(1))) {
@@ -105,19 +90,11 @@ class TicketDataHandler extends SQLiteOpenHelper {
                 holder.setLocation(c.getString(c.getColumnIndex(EVENT_LOCATION)));
                 holder.setDate(c.getString(c.getColumnIndex(EVENT_DATE)));
                 holder.setTime(c.getString(c.getColumnIndex(EVENT_TIME)));
-                holder.setPrice(c.getString(c.getColumnIndex(EVENT_PRICE)));
-                holder.setLimit(c.getString(c.getColumnIndex(EVENT_LIMIT)));
+                holder.setUniqueEventId(c.getString(c.getColumnIndex(EVENT_NAME)) +
+                        c.getString(c.getColumnIndex(COLUMN_ID)));
                 list.add(holder);
             }
         }
         return list;
-    }
-
-    public void testInsert(){
-        insertEvent("Finals", "Golding 101", "6PM-9PM", "December 12th", "FREE", "150");
-        insertEvent("Concert", "Levin Ballroom", "8PM-10PM", "April 24th", "FREE", "500");
-        insertEvent("Party","Farber Library", "9PM-12PM", "November 12th", "FREE", "250");
-        insertEvent("Graduation", "Gosman Gym", "10AM", "May 22nd", "Free", "800");
-        insertTicket("brandeis", "Finals");
     }
 }

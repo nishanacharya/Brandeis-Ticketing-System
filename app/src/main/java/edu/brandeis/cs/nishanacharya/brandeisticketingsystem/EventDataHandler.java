@@ -19,14 +19,13 @@ class EventDataHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String USER_ID = "user_id";
     private static final String EVENT_NAME = "event_name";
+    private static final String EVENT_DESCRIPTION = "event_description";
     private static final String EVENT_LOCATION = "event_location";
     private static final String EVENT_DATE = "event_date";
     private static final String EVENT_TIME = "event_time";
-    private static final String EVENT_PRICE = "event_price";
-    private static final String EVENT_LIMIT = "event_limit";
 
     public EventDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 24);
+        super(context, DATABASE_NAME, null, 35);
     }
 
     @Override
@@ -40,13 +39,15 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_ID
                 + " integer primary key autoincrement, "
                 + EVENT_NAME
+                + " Text," + EVENT_DESCRIPTION
                 + " Text," + EVENT_LOCATION
                 + " Text," + EVENT_DATE
                 + " Text," + EVENT_TIME
-                + " Text," + EVENT_PRICE
-                + " Text," + EVENT_LIMIT
                 + " Text)");
+
+        insertTestData(db);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -60,16 +61,15 @@ class EventDataHandler extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public void insertEvent(String Name, String Location, String Time, String Date, String Price, String Limit){
+    public void insertEvent(String Name, String Description, String Location, String Date, String Time){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("event_name", Name);
-        contentValues.put("event_location", Location);
-        contentValues.put("event_date", Date);
-        contentValues.put("event_time", Time);
-        contentValues.put("event_price", Price);
-        contentValues.put("event_limit", Limit);
+        contentValues.put(EVENT_NAME, Name);
+        contentValues.put(EVENT_DESCRIPTION, Description);
+        contentValues.put(EVENT_LOCATION, Location);
+        contentValues.put(EVENT_DATE, Date);
+        contentValues.put(EVENT_TIME, Time);
 
         db.insert(TABLE_NAME, null, contentValues);
     }
@@ -84,9 +84,14 @@ class EventDataHandler extends SQLiteOpenHelper {
         db.insert(MASTER_TABLE_NAME, null, contentValues);
     }
 
-    public  void delete(String string){
+    public  void delete(String columnID){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, EVENT_NAME + " = ?", new String[]{ string });
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{ columnID });
+    }
+
+    public void update(String columnID, ContentValues contentValues){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(TABLE_NAME, contentValues, COLUMN_ID + " = ?", new String[]{ columnID });
     }
 
     public boolean doesTableExist(){
@@ -96,5 +101,76 @@ class EventDataHandler extends SQLiteOpenHelper {
             cur.moveToFirst();
         }
         return cur.getInt(0) == 0;
+    }
+
+    public void insertEvent(String Name, String Location, String Time, String Date){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(EVENT_NAME, Name);
+        contentValues.put(EVENT_LOCATION, Location);
+        contentValues.put(EVENT_DATE, Date);
+        contentValues.put(EVENT_TIME, Time);
+
+        db.insert(TABLE_NAME, null, contentValues);
+    }
+
+    private void insertTestData(SQLiteDatabase db) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(EVENT_NAME, "Into the Woods");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Mainstage Theater, Spingold");
+        contentValues.put(EVENT_DATE, "2017/12/12");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Brandeis Jazz Ensemble");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Slosberg Music Center");
+        contentValues.put(EVENT_DATE, "2017/12/09");
+        contentValues.put(EVENT_TIME, "20:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Lois Foster Gallery");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Rose Art Museum");
+        contentValues.put(EVENT_DATE, "2018/01/04");
+        contentValues.put(EVENT_TIME, "15:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Mela");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Levin Ballroom Usdan");
+        contentValues.put(EVENT_DATE, "2018/03/04");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "K-Nite");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Levin Ballroom");
+        contentValues.put(EVENT_DATE, "2018/03/04");
+        contentValues.put(EVENT_TIME, "18:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Library Party");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Farber Library");
+        contentValues.put(EVENT_DATE, "2017/12/14");
+        contentValues.put(EVENT_TIME, "20:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
+
+        contentValues.put(EVENT_NAME, "Senior Week Kickoff");
+        contentValues.put(EVENT_DESCRIPTION, "");
+        contentValues.put(EVENT_LOCATION, "Great Lawn");
+        contentValues.put(EVENT_DATE, "2018/05/14");
+        contentValues.put(EVENT_TIME, "12:00");
+
+        db.insert(TABLE_NAME, null, contentValues);
     }
 }

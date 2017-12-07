@@ -1,50 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.EventPageActivity">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/appBarTheme"
+        app:popupTheme="@style/appBarTheme"  />
     <TextView
         android:id="@+id/eventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="TextView"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="110dp" />
+        android:textSize="50sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/eventDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="177dp" />
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"/>
 
     <TextView
         android:id="@+id/eventLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="246dp" />
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"/>
 
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="308dp" />
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"/>
 
     <Button
         android:id="@+id/saveToCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Calendar"
+        android:layout_gravity="center"
         android:onClick="saveToCalendar"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="357dp" />
-</android.support.constraint.ConstraintLayout>
+        android:text="Add to Calendar"
+        android:textSize="22sp"
+        android:paddingBottom="15sp"
+        android:theme="@style/AppTheme.Button"/>
+
+    <Button
+        android:id="@+id/purchaseEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:paddingBottom="15sp"
+        android:theme="@style/AppTheme.Button"
+        android:text="@string/add_button" />
+</LinearLayout>
