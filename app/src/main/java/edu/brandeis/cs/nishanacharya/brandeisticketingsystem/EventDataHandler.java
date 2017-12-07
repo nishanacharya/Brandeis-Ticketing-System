@@ -83,7 +83,12 @@ class EventDataHandler extends SQLiteOpenHelper {
 
     public  void delete(String string){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, EVENT_NAME + " = ?", new String[]{ string });
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{ string });
+    }
+
+    public void update(String columnID, ContentValues contentValues){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(TABLE_NAME, contentValues, COLUMN_ID + " = ?", new String[]{ columnID });
     }
 
     public boolean doesTableExist(){

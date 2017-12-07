@@ -1,5 +1,6 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,12 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
     private String date;
     private String time;
     private EventDataHandler eventDataHandler;
+    private String[] eventInfo;
+    private static final String EVENT_NAME = "event_name";
+    private static final String EVENT_DESCRIPTION = "event_description";
+    private static final String EVENT_LOCATION = "event_location";
+    private static final String EVENT_DATE = "event_date";
+    private static final String EVENT_TIME = "event_time";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,14 +38,14 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         eventDataHandler = new EventDataHandler(this);
-        editEvent();
-
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
-        String[] eventInfo;
         if(extras != null) {
             eventInfo = extras.getStringArray("eventInfo");
+        } else {
+            eventInfo = new String[]{};
         }
+        editEvent();
     }
 
     private void editEvent() {
@@ -54,9 +61,9 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void prefill() {
-        editEventName.setText();
-        editEventDescription.setText();
-        editEventLocation.setText();
+        editEventName.setText(eventInfo[1]);
+        editEventDescription.setText(eventInfo[2]);
+        editEventLocation.setText(eventInfo[3]);
         date = "";
         time = "";
         editDate.init(editDate.getYear(), editDate.getMonth(), editDate.getDayOfMonth(),new DatePicker.OnDateChangedListener() {
@@ -97,18 +104,22 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
             if(editEventName.getText().toString().equals("") || editEventDescription.getText().toString().equals("")|| editEventLocation.getText().toString().equals("")|| date.equals("")|| time.equals("")){
                 Toast.makeText(EditEventActivity.this, "Please enter all the information", Toast.LENGTH_SHORT).show();
             } else {
-                //find the particular event and make changes to it
-                eventDataHandler.insertEvent(editEventName.getText().toString(), editEventDescription.getText().toString(), editEventLocation.getText().toString(),
-                        date, time);
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(EVENT_NAME, editEventName.getText().toString());
+                contentValues.put(EVENT_DESCRIPTION, editEventDescription.getText().toString());
+                contentValues.put(EVENT_LOCATION, editEventLocation.getText().toString());
+                contentValues.put(EVENT_DATE, date);
+                contentValues.put(EVENT_TIME, time);
+                eventDataHandler.update(eventInfo[0], contentValues);
                 Toast.makeText(EditEventActivity.this, "Event has been changed", Toast.LENGTH_SHORT).show();
                 finish();
-                startActivity(new Intent(EditEventActivity.this, HomeActivity.class));
+                startActivity(new Intent(EditEventActivity.this, EventViewerActivity.class));
             }
         } else if (view == buttonDeleteEvent){
-            //delete event
+            eventDataHandler.delete(eventInfo[0]);
             Toast.makeText(EditEventActivity.this, "Event has been deleted", Toast.LENGTH_SHORT).show();
             finish();
-            startActivity(new Intent(EditEventActivity.this, HomeActivity.class));
+            startActivity(new Intent(EditEventActivity.this, EventViewerActivity.class));
         }
     }
 }
