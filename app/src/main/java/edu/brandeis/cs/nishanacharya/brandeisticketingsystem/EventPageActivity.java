@@ -62,10 +62,14 @@ public class EventPageActivity extends AppCompatActivity {
         TextView location = findViewById(R.id.eventLocation);
         TextView description = findViewById(R.id.eventDescription);
         TextView date = findViewById(R.id.eventDate);
+//        TextView time = findViewById(R.id.eventTime);
+
         name.setText(eventName);
         description.setText(eventDescription);
         location.setText(eventLocation);
         date.setText(eventDate);
+//        time.setText(eventTime);
+
 
         Button add_button = findViewById(R.id.purchaseEvent);
         add_button.setOnClickListener(new View.OnClickListener() {
@@ -75,11 +79,10 @@ public class EventPageActivity extends AppCompatActivity {
                     dh.insertTicket(FirebaseAuth.getInstance().getCurrentUser().getUid(), name.getText().toString());
                 }
 
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
-                builder1.setMessage("You have successfully purchased your ticket");
-                builder1.setCancelable(true);
-
-                builder1.setPositiveButton(
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setMessage("You have successfully purchased your ticket");
+                builder.setCancelable(true);
+                builder.setPositiveButton(
                         "Return to Events",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -87,7 +90,7 @@ public class EventPageActivity extends AppCompatActivity {
                             }
                         });
 
-                builder1.setNegativeButton(
+                builder.setNegativeButton(
                         "Return to Home",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -95,8 +98,10 @@ public class EventPageActivity extends AppCompatActivity {
                             }
                         });
 
-                AlertDialog alert11 = builder1.create();
-                alert11.show();
+                AlertDialog alert = builder.create();
+                alert.show();
+                alert.getButton(alert.BUTTON_NEGATIVE).setTextColor(0xffbdbdbd);
+                alert.getButton(alert.BUTTON_POSITIVE).setTextColor(0xffbdbdbd);
             }
         });
     }

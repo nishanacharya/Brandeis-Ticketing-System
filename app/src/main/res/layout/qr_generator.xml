@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="edu.brandeis.cs.nishanacharya.brandeisticketingsystem.QRGenerator"
-    android:background="@color/grey"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/grey">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -16,20 +16,67 @@
         android:elevation="4dp"
         android:theme="@style/appBarTheme"
         app:popupTheme="@style/appBarTheme" />
+
     <TextView
-        android:id="@+id/uniqueID"
+        android:id="@+id/ticketName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="60dp"
         android:text="TextView"
-        android:textSize="24sp" />
-    <ImageView
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/ticketDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="50sp"
-        />
+        android:gravity="center"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"/>
+
+    <TextView
+        android:id="@+id/ticketLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp" />
+
+    <TextView
+        android:id="@+id/ticketDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"/>
+    <TextView
+        android:id="@+id/ticketTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250sp"
+        android:layout_height="250sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp" />
+
 
 </LinearLayout>
