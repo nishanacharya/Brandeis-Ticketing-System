@@ -1,7 +1,9 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -24,6 +26,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class QRReader extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView ScannerView;
     final int REQUEST_CODE = 100;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,4 +65,5 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         // Resumes scanning
         ScannerView.resumeCameraPreview(this);
     }
+
 }

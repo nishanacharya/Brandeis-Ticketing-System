@@ -42,7 +42,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".QRGenerator" />
-        <activity android:name=".QRReader" />
+        <activity android:name=".QRReader"
+            android:screenOrientation="portrait"/>
         <activity android:name=".EventViewerActivity" />
         <activity android:name=".TicketViewerActivity" />
         <activity android:name=".EventPageActivity" />

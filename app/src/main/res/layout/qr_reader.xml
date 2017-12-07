@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/grey">
+    android:background="@color/grey"
+    android:screenOrientation="portrait">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
