@@ -81,7 +81,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     ArrayList getData(String UserName){
-        //System.out.println(UserName);
         ArrayList<EventHolder> list = new ArrayList<>();
         ArrayList<String> userTickets = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -103,20 +102,12 @@ class TicketDataHandler extends SQLiteOpenHelper {
                 holder.setLocation(c.getString(c.getColumnIndex(EVENT_LOCATION)));
                 holder.setDate(c.getString(c.getColumnIndex(EVENT_DATE)));
                 holder.setTime(c.getString(c.getColumnIndex(EVENT_TIME)));
+                holder.setUniqueEventId(c.getString(c.getColumnIndex(EVENT_NAME)) +
+                        c.getString(c.getColumnIndex(COLUMN_ID)));
                 list.add(holder);
             }
         }
         return list;
-    }
-
-    public void testInsert(){
-        insertEvent("Into the Woods", "Mainstage Theater, Spingold", "18:00", "2017/12/12");
-        insertEvent("Brandeis Jazz Ensemble", "Slosberg Music Center", "20:00", "2017/12/09");
-        insertEvent("Lois Foster Gallery","Rose Art Museum", "15:00", "2018/01/04");
-        insertEvent("Mela", "Levin Ballroom Usdan", "18:00", "2017/12/10");
-        insertEvent("K-Nite", "Levin Ballroom", "18:00", "2018/03/04");
-        insertEvent("Senior Week Kickoff", "Great Lawn", "12:00", "2018/05/14");
-        insertEvent("Library Party","Farber Library", "20:00", "2017/12/14");
     }
 }
 

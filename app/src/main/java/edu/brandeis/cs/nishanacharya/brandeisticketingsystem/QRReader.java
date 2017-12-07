@@ -1,6 +1,7 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -32,6 +33,8 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     final int REQUEST_CODE = 100;
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
+    private String[] eventInfo;
+    private String placeholder1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         ScannerView.startCamera();
 
         dh = new TicketDataHandler(this);
-        list = dh.getData(getString(R.string.brandeis));
+        list = dh.getData(FirebaseAuth.getInstance().getCurrentUser().toString());
 
     }
 
@@ -62,7 +65,6 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     public void handleResult(Result result) {
-        ScannerView.stopCamera();
 
         // Do something with the result
         Log.w(getString(R.string.handleResult), result.getText());
