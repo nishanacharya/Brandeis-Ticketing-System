@@ -31,6 +31,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     TicketDataHandler dh;
     private ArrayList<EventHolder> list;
     private String[] eventInfo;
+    private String placeholder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     public void handleResult(Result result) {
+
         // Do something with the result
         String scanResult = null;
         Log.w(getString(R.string.handleResult), result.getText());
