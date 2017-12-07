@@ -2,7 +2,9 @@ package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -72,8 +74,9 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     private void scanSuccessSound() {
-//        final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
-
+//        final MediaPlayer mp = MediaPlayer.create(this, R.raw.served);
+//        long millis = 500;
+//        mp.start();
     }
 
     private void showAlertSuccess(Result result, String[] userAndTicket){
