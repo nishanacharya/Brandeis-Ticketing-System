@@ -43,7 +43,6 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         editDate.init(editDate.getYear(), editDate.getMonth(), editDate.getDayOfMonth(),new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker arg0, int year, int monthIn, int dayIn) {
-                // TODO Auto-generated method stub
                 String day = "";
                 String month = "";
                 monthIn++;
