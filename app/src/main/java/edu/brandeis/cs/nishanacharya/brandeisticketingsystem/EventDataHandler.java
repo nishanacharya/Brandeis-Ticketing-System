@@ -58,7 +58,7 @@ class EventDataHandler extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public void insertEvent(String Name, String Description, String Location, String Time, String Date){
+    public void insertEvent(String Name, String Description, String Location, String Date, String Time){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();

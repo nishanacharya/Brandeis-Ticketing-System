@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -26,7 +27,10 @@ public class QRGenerator extends AppCompatActivity{
     ImageView imageView;
     public final static int QRcodeWidth = 500;
     Bitmap bitmap;
-    String convertToQR;
+    String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String convertToQR = userID + "~" + "TICKETID";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,6 @@ public class QRGenerator extends AppCompatActivity{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
-        convertToQR = getIntent().getStringExtra(getString(R.string.unique_qr_id));  // Unique ID is created with userID + ticketID
         TextView qrID = (TextView) findViewById(R.id.uniqueID);
         qrID.setText(convertToQR);
 
