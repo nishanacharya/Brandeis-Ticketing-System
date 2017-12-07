@@ -62,6 +62,8 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     public void handleResult(Result result) {
+        ScannerView.stopCamera();
+
         // Do something with the result
         Log.w(getString(R.string.handleResult), result.getText());
 
@@ -74,9 +76,8 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     }
 
     private void scanSuccessSound() {
-//        final MediaPlayer mp = MediaPlayer.create(this, R.raw.served);
-//        long millis = 500;
-//        mp.start();
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.served);
+        mp.start();
     }
 
     private void showAlertSuccess(Result result, String[] userAndTicket){
@@ -89,5 +90,6 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
         builder.setMessage(scanResult);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        ScannerView.resumeCameraPreview(this);
     }
 }
