@@ -43,8 +43,8 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         editDate.init(editDate.getYear(), editDate.getMonth(), editDate.getDayOfMonth(),new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker arg0, int year, int monthIn, int dayIn) {
-                String day = "";
-                String month = "";
+                String day = "" + dayIn;
+                String month = "" + monthIn;
                 monthIn++;
                 if(dayIn < 10){
                     day = "0" + dayIn;
@@ -59,8 +59,8 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         editTime.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 
             public void onTimeChanged(TimePicker view, int hourOfDayIn, int minuteIn) {
-                String hourOfDay = "";
-                String minute = "";
+                String hourOfDay = "" + hourOfDayIn;
+                String minute = "" + minuteIn;
                 if(hourOfDayIn < 10){
                     hourOfDay = "0" + hourOfDay;
                 }
