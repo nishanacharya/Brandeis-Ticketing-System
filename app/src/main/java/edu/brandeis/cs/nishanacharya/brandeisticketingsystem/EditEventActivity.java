@@ -1,5 +1,6 @@
 package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +27,13 @@ public class EditEventActivity extends AppCompatActivity implements View.OnClick
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         editEvent();
+
+        Intent receiveIntent = getIntent();
+        Bundle extras = receiveIntent.getExtras();
+        String ID;
+        if(extras != null) {
+            ID = extras.getString("ID");
+        }
     }
 
     private void editEvent() {

@@ -44,19 +44,22 @@ class EventAdapter extends SimpleCursorAdapter {
     public void bindView(View view, final Context context, Cursor cursor){
         if(cursor != null) {
             final String event_name = cursor.getString(1);
-            final String[] event_info = {cursor.getString(cursor.getColumnIndex("event_name")),
+            final String[] event_info = {cursor.getString(cursor.getColumnIndex("_id")),
+                    cursor.getString(cursor.getColumnIndex("event_name")),
                     cursor.getString(cursor.getColumnIndex("event_description")),
                     cursor.getString(cursor.getColumnIndex("event_location")),
                     cursor.getString(cursor.getColumnIndex("event_date")),
                     cursor.getString(cursor.getColumnIndex("event_time"))};
             TextView name = view.findViewById(R.id.event_name);
+            TextView uniqueID = view.findViewById(R.id.eventUniqueID);
             TextView description = view.findViewById(R.id.event_description);
             TextView location = view.findViewById(R.id.event_location);
             TextView date = view.findViewById(R.id.event_date);
             TextView time = view.findViewById(R.id.event_time);
-            ListView listView = view.findViewById(R.id.ticketListView);
 
             name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
+            uniqueID.setText(cursor.getString(cursor.getColumnIndex("event_name")) +
+                    cursor.getString(cursor.getColumnIndex("_id")));
             location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
             date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
             time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
