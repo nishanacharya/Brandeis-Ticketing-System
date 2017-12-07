@@ -29,7 +29,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public TicketDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 27);
+        super(context, DATABASE_NAME, null, 28);
     }
 
     @Override

@@ -44,11 +44,10 @@ public class EventViewerActivity extends AppCompatActivity {
                      TextView location = view.findViewById(R.id.event_location);
                      TextView date = view.findViewById(R.id.event_date);
                      TextView time = view.findViewById(R.id.event_time);
-                     TextView uniqueID = view.findViewById(R.id.eventUniqueID);
-                     String[] eventInfo = {uniqueID.getText().toString(), name.getText().toString()
+                     TextView columnID = view.findViewById(R.id.columnID);
+                     String[] eventInfo = {columnID.getText().toString(), name.getText().toString()
                              , description.getText().toString(),  location.getText().toString(),
                              date.getText().toString(),  time.getText().toString()};
-
                      Intent intent = new Intent(EventViewerActivity.this,EditEventActivity.class);
                      intent.putExtra("eventInfo",  eventInfo);
                      startActivity(intent);
@@ -66,6 +65,7 @@ public class EventViewerActivity extends AppCompatActivity {
                      intent.putExtra("eventInfo", eventInfo);
                      startActivity(intent);
                  }
+                 listView.setAdapter(adapter);
             }
         });
 
