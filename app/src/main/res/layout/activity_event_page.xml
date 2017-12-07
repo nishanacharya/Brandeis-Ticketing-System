@@ -10,41 +10,60 @@
         android:id="@+id/eventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
         android:text="TextView"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="110dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/eventDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="35dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="177dp" />
+        app:layout_constraintStart_toStartOf="@+id/eventName"
+        app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
     <TextView
         android:id="@+id/eventLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="43dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="246dp" />
+        app:layout_constraintBottom_toTopOf="@+id/eventDate"
+        app:layout_constraintStart_toStartOf="@+id/eventDate" />
 
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toTopOf="@+id/purchaseEvent"
+        app:layout_constraintEnd_toEndOf="@+id/eventDescription"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/eventDescription" />
 
     <Button
         android:id="@+id/saveToCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Calendar"
+        android:layout_marginTop="236dp"
         android:onClick="saveToCalendar"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="357dp" />
+        android:text="Add to Calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <Button
+        android:id="@+id/purchaseEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/add_button"
+        app:layout_constraintBottom_toTopOf="@+id/saveToCalendar"
+        app:layout_constraintStart_toStartOf="@+id/saveToCalendar" />
 </android.support.constraint.ConstraintLayout>

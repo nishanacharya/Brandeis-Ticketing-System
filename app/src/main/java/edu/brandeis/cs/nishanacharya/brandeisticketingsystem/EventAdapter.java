@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ class EventAdapter extends SimpleCursorAdapter {
     private EventDataHandler db;
     private String userName;
 
-    public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags, String userName){
+    public EventAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags){
         super(context, layout, c, from, to, flags);
         db = new EventDataHandler(context);
         this.userName = userName;
@@ -46,30 +48,18 @@ class EventAdapter extends SimpleCursorAdapter {
                     cursor.getString(cursor.getColumnIndex("event_description")),
                     cursor.getString(cursor.getColumnIndex("event_location")),
                     cursor.getString(cursor.getColumnIndex("event_date")),
-                    cursor.getString(cursor.getColumnIndex("event_time")),
-                    cursor.getString(cursor.getColumnIndex("event_limit"))};
+                    cursor.getString(cursor.getColumnIndex("event_time"))};
             TextView name = view.findViewById(R.id.event_name);
+            TextView description = view.findViewById(R.id.event_description);
             TextView location = view.findViewById(R.id.event_location);
             TextView date = view.findViewById(R.id.event_date);
             TextView time = view.findViewById(R.id.event_time);
-            TextView limit = view.findViewById(R.id.event_limit);
+            ListView listView = view.findViewById(R.id.ticketListView);
 
             name.setText(cursor.getString(cursor.getColumnIndex("event_name")));
             location.setText(cursor.getString(cursor.getColumnIndex("event_location")));
             date.setText(cursor.getString(cursor.getColumnIndex("event_date")));
             time.setText(cursor.getString(cursor.getColumnIndex("event_time")));
-            limit.setText(cursor.getString(cursor.getColumnIndex("event_limit")));
-
-            /*Button add_button = view.findViewById(R.id.add_button);
-            add_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, EventPageActivity.class);
-                    intent.putExtra("event_info", event_info);
-                    intent.putExtra("userName", userName);
-                    context.startActivity(intent);
-                }
-            });*/
         }
     }
 }

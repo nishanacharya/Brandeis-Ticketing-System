@@ -29,7 +29,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     private static final String EVENT_TIME = "event_time";
 
     public TicketDataHandler(Context context) {
-        super(context, DATABASE_NAME, null, 26);
+        super(context, DATABASE_NAME, null, 27);
     }
 
     @Override
@@ -80,6 +80,7 @@ class TicketDataHandler extends SQLiteOpenHelper {
     }
 
     ArrayList getData(String UserName){
+        //System.out.println(UserName);
         ArrayList<EventHolder> list = new ArrayList<>();
         ArrayList<String> userTickets = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -93,7 +94,6 @@ class TicketDataHandler extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         int size = userTickets.size();
-        System.out.println(size);
 
         while(c.moveToNext() && size > 0){
             if(userTickets.contains(c.getString(1))) {
@@ -108,11 +108,13 @@ class TicketDataHandler extends SQLiteOpenHelper {
         return list;
     }
 
-    /*public void testInsert(){
-        insertEvent("Finals", "Golding 101", "6PM-9PM", "December 12th", "FREE", "150");
-        insertEvent("Concert", "Levin Ballroom", "8PM-10PM", "April 24th", "FREE", "500");
-        insertEvent("Party","Farber Library", "9PM-12PM", "November 12th", "FREE", "250");
-        insertEvent("Graduation", "Gosman Gym", "10AM", "May 22nd", "Free", "800");
-        insertTicket("brandeis", "Finals");
-    }*/
+    public void testInsert(){
+        insertEvent("Into the Woods", "Mainstage Theater, Spingold", "6PM-9PM", "December 12th");
+        insertEvent("Brandeis Jazz Ensemble", "Slosberg Music Center", "8PM", "December 20th");
+        insertEvent("Lois Foster Gallery","Rose Art Museum", "9PM", "January 12th");
+        insertEvent("Mela", "Levin Ballroom Usdan", "6PM", "February 22nd");
+        insertEvent("K-Nite", "Levin Ballroom", "8PM-10PM", "April 24th");
+        insertEvent("Senior Week Kickoff", "Great Lawn", "12PM", "May 12th");
+        insertEvent("Library Party","Farber Library", "9PM-12PM", "November 12th");
+    }
 }

@@ -2,6 +2,7 @@ package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -60,20 +61,30 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
 
     public void handleResult(Result result) {
         // Do something with the result
-        String scanResult = null;
         Log.w(getString(R.string.handleResult), result.getText());
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.scanResult));
 
         String[] userAndTicket = result.getText().split("~");
-        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-//        String eventName = list.get(position).getUniqueEventId();   // position is index of event in db?
-        scanResult = userAndTicket[1];
-        builder.setMessage(scanResult);
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        scanSuccessSound();
+        showAlertSuccess(result, userAndTicket);
 
         // Resumes scanning
         ScannerView.resumeCameraPreview(this);
+    }
+
+    private void scanSuccessSound() {
+//        final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
+
+    }
+
+    private void showAlertSuccess(Result result, String[] userAndTicket){
+        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+//        String eventName = list.get(position).getUniqueEventId();   // position is index of event in db?
+        String scanResult = userAndTicket[1];
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.scanResult));
+        builder.setMessage(scanResult);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
