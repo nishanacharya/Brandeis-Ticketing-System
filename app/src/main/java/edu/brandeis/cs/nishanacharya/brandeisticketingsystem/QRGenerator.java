@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,8 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by rebeccashi on 12/2/17.
@@ -41,7 +46,7 @@ public class QRGenerator extends AppCompatActivity{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
-        TextView qrID = (TextView) findViewById(R.id.uniqueID);
+        //TextView qrID = (TextView) findViewById(R.id.uniqueID);
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
         if(extras != null) {
@@ -51,7 +56,17 @@ public class QRGenerator extends AppCompatActivity{
             eventInfo = new String[]{};
         }
         convertToQR = userID + "~" + TicketID;
-        qrID.setText(convertToQR);
+        //qrID.setText(convertToQR);
+
+        TextView name = findViewById(R.id.ticketName);
+        TextView description = findViewById(R.id.ticketDescription);
+        TextView location = findViewById(R.id.ticketLocation);
+        TextView date = findViewById(R.id.ticketDate);
+        TextView time = findViewById(R.id.ticket_time);
+        name.setText(eventInfo[1]);
+        description.setText(eventInfo[2]);
+        location.setText(eventInfo[3]);
+        date.setText(eventInfo[4]);
 
 
         try {
@@ -64,6 +79,25 @@ public class QRGenerator extends AppCompatActivity{
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.home_Button:
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
     Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
         try {
