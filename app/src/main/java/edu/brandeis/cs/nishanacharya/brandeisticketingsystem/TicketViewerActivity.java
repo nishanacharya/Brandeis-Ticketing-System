@@ -3,6 +3,9 @@ package edu.brandeis.cs.nishanacharya.brandeisticketingsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
@@ -49,5 +52,23 @@ public class TicketViewerActivity extends AppCompatActivity {
                 startActivity(QRActivity);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu item) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.directory,item);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.home_Button:
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
     }
 }
