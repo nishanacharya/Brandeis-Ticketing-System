@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -29,8 +26,6 @@ class EventAdapter extends SimpleCursorAdapter {
         this.userName = userName;
         super.changeCursor(db.getCursor());
         dh = new EventDataHandler(context);
-//        dh.testInsert();
-
     }
 
     public void insert(Intent data){

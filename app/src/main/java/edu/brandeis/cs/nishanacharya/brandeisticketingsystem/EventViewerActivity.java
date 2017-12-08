@@ -22,15 +22,13 @@ public class EventViewerActivity extends AppCompatActivity {
 
     private EventAdapter adapter;
     private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
-    private boolean admin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_events);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        final ListView listView = (ListView) findViewById(R.id.ticketListView);
+        final ListView listView = findViewById(R.id.ticketListView);
         String[] from = { "_id", "event_name", "event_location", "event_date", "event_time"};
         int[] to = { R.id.event_name, R.id.event_location, R.id.event_date, R.id.event_time };
         adapter = new EventAdapter(this, R.layout.event_entry, null, from, to, 0);

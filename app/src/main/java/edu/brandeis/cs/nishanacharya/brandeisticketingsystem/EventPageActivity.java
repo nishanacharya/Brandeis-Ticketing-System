@@ -14,14 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,21 +50,20 @@ public class EventPageActivity extends AppCompatActivity {
             this.eventName = eventInfo[EVENT_NAME];
             this.eventDescription = eventInfo[EVENT_DESCRIPTION];
             this.eventLocation = eventInfo[EVENT_LOCATION];
-            this.eventDate = eventInfo[EVENT_DATE];     // Must be in the format "2017/12/04 18:10:45"
-            this.eventTime = eventInfo[EVENT_TIME] + ":00";
+            this.eventDate = eventInfo[EVENT_DATE];
+            this.eventTime = eventInfo[EVENT_TIME];
         }
         final TextView name = findViewById(R.id.eventName);
         TextView location = findViewById(R.id.eventLocation);
         TextView description = findViewById(R.id.eventDescription);
         TextView date = findViewById(R.id.eventDate);
-//        TextView time = findViewById(R.id.eventTime);
+        TextView time = findViewById(R.id.eventTime);
 
         name.setText(eventName);
         description.setText(eventDescription);
         location.setText(eventLocation);
         date.setText(eventDate);
-//        time.setText(eventTime);
-
+        time.setText(eventTime);
 
         Button add_button = findViewById(R.id.purchaseEvent);
         add_button.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +125,7 @@ public class EventPageActivity extends AppCompatActivity {
         long millis = 0;
 
         try {
-            date = sdf.parse(this.eventDate + " " + this.eventTime);
+            date = sdf.parse(this.eventDate + " " + this.eventTime  + ":00");
             millis = date.getTime();
         } catch (ParseException e) {
             e.printStackTrace();
@@ -141,7 +135,6 @@ public class EventPageActivity extends AppCompatActivity {
         TextView eventName = (TextView) findViewById(R.id.eventName);
         TextView location = (TextView) findViewById(R.id.eventLocation);
         TextView description = (TextView) findViewById(R.id.eventDescription);
-//        EditText date = (EditText) findViewById(R.id.dateInput);
 
         //creates calender event
         Intent calenderIntent = new Intent(Intent.ACTION_EDIT);

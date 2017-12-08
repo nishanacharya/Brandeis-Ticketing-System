@@ -25,7 +25,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button signOutButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    public boolean testInserted = false;
 
     // Manually set two users as Admin: napril@brandeis.edu & acharyan@brandeis.edu.
     private final String[] ADMINS = {"fAoRjapHEqhGmTTHTH4mNu1DFAu1", "XEtFwBtFXGeq9iK2r0NYDJ6Lvj82"};
@@ -50,14 +49,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         adminOrNot();
-
-        Button buttonMyInfo = (Button) findViewById(R.id.myinfo_button);
-        buttonMyInfo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, UserProfileActivity.class));
-
-            }
-        });
 
         signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
@@ -132,8 +123,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                             RegularUser newUser = new RegularUser(userName);
                             databaseReference.child(firebaseAuth.getCurrentUser().getUid()).setValue(newUser);
                         } else {
-                            //Singup Failure Message for now
-                            Toast.makeText(HomeActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            //Singup Failure Message
+                            Toast.makeText(HomeActivity.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                         }
 
                     }

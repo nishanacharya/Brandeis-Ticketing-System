@@ -30,25 +30,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
-        if(firebaseAuth.getCurrentUser() != null){
-            //user profile
-        }
         logInView();
-
-
-
     }
 
     private void logInView() {
-        editEmailAddress = (EditText) findViewById(R.id.editTextEmail);
-        editPassword = (EditText) findViewById(R.id.editPassword);
-        buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
-        buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
+        editEmailAddress = findViewById(R.id.editTextEmail);
+        editPassword = findViewById(R.id.editPassword);
+        buttonSignIn = findViewById(R.id.buttonSignIn);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
         buttonSignIn.setOnClickListener(this);
         buttonSignUp.setOnClickListener(this);
     }

@@ -4,25 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
-
 import android.graphics.Bitmap;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by rebeccashi on 12/2/17.
@@ -37,8 +30,6 @@ public class QRGenerator extends AppCompatActivity{
     String[] eventInfo;
     String convertToQR;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +37,6 @@ public class QRGenerator extends AppCompatActivity{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         imageView = (ImageView)findViewById(R.id.imageView);
-        //TextView qrID = (TextView) findViewById(R.id.uniqueID);
         Intent receiveIntent = getIntent();
         Bundle extras = receiveIntent.getExtras();
         if(extras != null) {
@@ -56,8 +46,6 @@ public class QRGenerator extends AppCompatActivity{
             eventInfo = new String[]{};
         }
         convertToQR = userID + "~" + TicketID;
-        //qrID.setText(convertToQR);
-
         TextView name = findViewById(R.id.ticketName);
         TextView description = findViewById(R.id.ticketDescription);
         TextView location = findViewById(R.id.ticketLocation);

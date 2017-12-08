@@ -76,7 +76,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                 date = year + "/" + month + "/" + day;
             }
         } );
-        editTime = (TimePicker) findViewById(R.id.editEventTime);
+        editTime = findViewById(R.id.editEventTime);
         editTime.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 
             public void onTimeChanged(TimePicker view, int hourOfDayIn, int minuteIn) {
